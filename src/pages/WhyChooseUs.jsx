@@ -9,30 +9,33 @@ const WhyChooseUs = () => {
       </p>
 
       <div className="choose-grid">
-        {/* Image Box 1 */}
-        <div className="image-box green-bg">
-          <img src="/man1.png" alt="Team Member 1" />
+        {/* Row 1: Image Left, Text Right */}
+        <div className="row">
+          <div className="image-box green-bg">
+            <img src="/man1.png" alt="Team Member 1" />
+          </div>
+          <div className="text-box shadow-box">
+            <p>
+              <strong>Dr. Emily Chen</strong><br />
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. In excepturi quae blanditiis doloribus est, temporibus possimus unde nisi voluptatibus. Iusto voluptas ad aspernatur aperiam et eos unde asperiores quasi! Quaerat.
+            </p>
+          </div>
         </div>
 
-        {/* Text Box 1 */}
-        <div className="text-box shadow-box">
-          <p>
-            <strong>Dr. Emily Chen</strong><br />
-            With over 15 years of experience in educational technology, Dr. Chen has revolutionized how we approach learning in the digital age. Her vision combines cutting-edge technology with proven pedagogical methods to create truly transformative educational experiences.
-          </p>
-        </div>
-
-        {/* Text Box 2 */}
-        <div className="text-box shadow-box">
-          <p>
-            <strong>Dr. Emily Chen</strong><br />
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, tempore amet ipsa dolores quis, adipisci error esse ipsum delectus aut temporibus natus exercitationem eveniet quae. Natus laborum porro possimus nam!
-          </p>
-        </div>
-
-        {/* Image Box 2 */}
-        <div className="image-box peach-bg">
-          <img src="/man2.png" alt="Team Member 2" />
+        {/* Row 2: Text Left, Image Right + Arrow */}
+        <div className="row">
+          <div className="arrow-container">
+            <div className="text-box shadow-box">
+              <p>
+                <strong>Dr. Emily Chen</strong><br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, tempore amet ipsa dolores quis, adipisci error esse ipsum delectus aut temporibus natus exercitationem eveniet quae. Natus laborum porro possimus nam!
+              </p>
+            </div>
+            {/* <img src="/arrow.jpng" alt="arrow" className="heart-arrow" /> */}
+          </div>
+          <div className="image-box peach-bg">
+            <img src="/man2.png" alt="Team Member 2" />
+          </div>
         </div>
       </div>
     </section>

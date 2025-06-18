@@ -17,14 +17,22 @@
 }
 
 .choose-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px; /* Reduced from 40px to 20px */
-  justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px; /* vertical space between rows */
 }
 
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: nowrap; /* Prevent stacking */
+}
 
-/* Image box with background gradient */
+/* Image box */
 .image-box {
   width: 300px;
   height: 300px;
@@ -33,17 +41,11 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: #f0f0f0;
+  transition: transform 0.3s ease;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
               rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
               rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.image-box:hover {
-  transform: scale(1.05); /* Slight zoom on hover */
-  box-shadow: rgba(50, 50, 93, 0.35) 0px 60px 120px -20px,
-              rgba(0, 0, 0, 0.4) 0px 40px 70px -30px,
-              rgba(10, 37, 64, 0.45) 0px -2px 10px 0px inset;
 }
 
 .image-box img {
@@ -53,50 +55,46 @@
   border-radius: 20px;
 }
 
+.image-box:hover {
+  transform: scale(1.05);
+}
 
-/* Gradient backgrounds */
+/* Backgrounds */
 .green-bg {
-  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
 }
 
 .peach-bg {
-  background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
 }
 
-/* Text card */
+/* Text box */
 .text-box {
-  background-color: white;
-  border-radius: 16px;
-  padding: 30px;
   width: 600px;
   height: 200px;
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
   display: flex;
   align-items: center;
   text-align: left;
-  transition: all 0.3s ease;
+  transition: 0.3s ease;
+  position: relative;
 }
 
-.shadow-box {
- box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-}
 .text-box:hover {
   transform: scale(1.02);
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
 }
+
+.shadow-box {
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+              rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+              rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
 .text-box p {
   font-size: 1em;
   color: #222;
   line-height: 1.6;
-}
-.arrow-container {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.heart-arrow {
-  margin-top: -20px; /* Moves image closer to box */
-  width: 60px;
-  height: auto;
 }

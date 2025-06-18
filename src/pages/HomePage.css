@@ -19,7 +19,7 @@
     z-index: 0;
     overflow: hidden;
   }
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  /* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap'); */
 
   .homepage {
     font-family: 'Poppins', sans-serif;
@@ -72,18 +72,26 @@
     font-size: 16px;
   }
   
-  .search-button {
-    background-color: #0057ff;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
-  }
-  
-  .search-button:hover {
-    background-color: #0042cc;
-  }
-  
+.search-button {
+  background-image: linear-gradient(to right, #6a3093 0%, #a044ff 51%, #6a3093 100%);
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  border: none;
+  cursor: pointer;
+}
+
+.search-button:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+          
