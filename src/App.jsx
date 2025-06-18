@@ -8,7 +8,9 @@ import WhyChooseUs from './pages/WhyChooseUs';
 
 function App() {
   return (
+   
     <Routes>
+
       <Route path="/" element={<HomePage />} />
       <Route path="/courses" element={<Courses />} />
       <Route path="/about-us" element={<AboutUs />} />
@@ -16,6 +18,7 @@ function App() {
       <Route path="/contact-us" element={<ContactUs />} />
      
     </Routes>
+    
   );
 }
 

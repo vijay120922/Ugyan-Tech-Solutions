@@ -40,3 +40,11 @@
 .read-the-docs {
   color: #888;
 }
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top center, rgba(170, 139, 255, 0.4), #fff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+}
