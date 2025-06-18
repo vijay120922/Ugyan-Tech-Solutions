@@ -3,6 +3,7 @@ import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
 import WhyChooseUs from './WhyChooseUs';
 import CoursesSection from "./CoursesSection";
+import Footer from '../components/Footer';
 import './HomePage.css'; 
 
 const HomePage = () => {
@@ -42,7 +43,9 @@ const HomePage = () => {
       <section>
         <CoursesSection />
       </section>
-
+      <section>
+        <Footer />
+      </section>
     </>
   );
 };

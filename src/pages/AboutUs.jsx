@@ -1,15 +1,45 @@
+import './wcw.css';
+
 const AboutUs = () => {
   return (
-    <div className="about-us">
-      <h1>About Us</h1>
-      <p>
-        We are a leading online education platform dedicated to providing high-quality courses and resources to help you achieve your learning goals. Our team of experienced instructors and industry professionals is committed to delivering engaging and effective learning experiences.
+    <section className="why-choose-us">
+      <h2>Who are we?</h2>
+      <p className="subheading">
+        Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations
       </p>
-      <p>
-        Whether you're looking to advance your career, learn a new skill, or explore a passion, we have something for everyone. Join our community of learners today and start your journey towards success!
-      </p>
-    </div>
+
+      <div className="choose-grid">
+        {/* Row 1: Image Left, Text Right */}
+        <div className="row">
+          <div className="image-box green-bg">
+            <img src="/man1.png" alt="Team Member 1" />
+          </div>
+          <div className="text-box shadow-box">
+            <p>
+              <strong>Dr. Emily Chen</strong><br />
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. In excepturi quae blanditiis doloribus est, temporibus possimus unde nisi voluptatibus. Iusto voluptas ad aspernatur aperiam et eos unde asperiores quasi! Quaerat.
+            </p>
+          </div>
+        </div>
+
+        {/* Row 2: Text Left, Image Right + Arrow */}
+        <div className="row">
+          <div className="arrow-container">
+            <div className="text-box shadow-box">
+              <p>
+                <strong>Dr. Emily Chen</strong><br />
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, tempore amet ipsa dolores quis, adipisci error esse ipsum delectus aut temporibus natus exercitationem eveniet quae. Natus laborum porro possimus nam!
+              </p>
+            </div>
+            {/* <img src="/arrow.jpng" alt="arrow" className="heart-arrow" /> */}
+          </div>
+          <div className="image-box peach-bg">
+            <img src="/man2.png" alt="Team Member 2" />
+          </div>
+        </div>
+      </div>
+    </section>
   );
-}
+};
 
 export default AboutUs;

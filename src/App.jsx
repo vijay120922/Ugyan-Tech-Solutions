@@ -4,6 +4,8 @@ import Courses from './pages/Courses';
 import AboutUs from './pages/AboutUs';
 import ContactUs from './pages/ContactUs';
 import WhyChooseUs from './pages/WhyChooseUs';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 
 function App() {
