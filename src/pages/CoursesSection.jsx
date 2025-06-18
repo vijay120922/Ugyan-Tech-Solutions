@@ -31,6 +31,7 @@ const CoursesSection = () => {
   return (
     <div className="courses-section">
       <h2 className="section-title">Courses</h2>
+      
       <div className="courses-grid">
         {courses.map((course, index) => (
           <div className="course-card" key={index}>
@@ -38,17 +39,18 @@ const CoursesSection = () => {
             <h3 className="course-title">{course.title}</h3>
             <p className="course-description">{course.description}</p>
             <button className="enroll-button" onClick={() => navigate("/courses")}>
-              Enroll Now
+              View More
             </button>
           </div>
         ))}
-        <div className="see-all-wrapper">
+      </div>
+
+      {/* Moved OUTSIDE of courses-grid */}
+      <div className="see-all-wrapper">
         <button className="see-all-button" onClick={() => navigate("/courses")}>
           See All Courses →
         </button>
       </div>
-      </div>
-      
     </div>
   );
 };
