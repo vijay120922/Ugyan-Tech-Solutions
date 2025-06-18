@@ -9,8 +9,8 @@ const Navbar = () => {
     }`;
 
   return (
-    <nav className="bg-gradient-to-r from-indigo-400 via-white to-purple-400 shadow-md sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+    <nav className="bg-transparent backdrop-blur-sm shadow-md sticky top-0 z-50">
+ <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="nav">
   {/* Left: Logo */}
