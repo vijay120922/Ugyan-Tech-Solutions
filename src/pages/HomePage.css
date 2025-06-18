@@ -1,0 +1,21 @@
+.homepage-bg {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    background: radial-gradient(
+        circle at top left,
+        rgba(138, 43, 226, 0.4),
+        transparent 50%
+      ),
+      radial-gradient(
+        circle at top right,
+        rgba(138, 43, 226, 0.4),
+        transparent 50%
+      ),
+      white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 0;
+    overflow: hidden;
+  }
+  
