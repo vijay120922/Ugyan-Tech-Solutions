@@ -12,12 +12,12 @@ const slides = [
     link: "/courses",
   },
   {
-    image: "/carousel1.jpg",
+    image: "/carousel2.jpg",
     buttonText: "Know Us More",
     link: "/about-us",
   },
   {
-    image: "/carousel1.jpg",
+    image: "/carousel3.jpg",
     buttonText: "Why Choose Us?",
     link: "/why-choose-us",
   },
