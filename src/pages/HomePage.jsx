@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
 import WhyChooseUs from './WhyChooseUs';
+import CoursesSection from "./CoursesSection";
 import './HomePage.css'; 
 
 const HomePage = () => {
@@ -37,6 +38,11 @@ const HomePage = () => {
       <section className="why-choose-section">
         <WhyChooseUs />
       </section>
+
+      <section>
+        <CoursesSection />
+      </section>
+
     </>
   );
 };
