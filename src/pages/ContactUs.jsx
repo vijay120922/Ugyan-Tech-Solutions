@@ -1,21 +1,49 @@
-const ContactUs = () => { 
-    return (
-        <div className="contact-us">
-            <h1>Contact Us</h1>
-            <p>If you have any questions or need further information, feel free to reach out to us.</p>
-            <form>
-                <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="name" required />
-                
-                <label htmlFor="email">Email:</label>
-                <input type="email" id="email" name="email" required />
-                
-                <label htmlFor="message">Message:</label>
-                <textarea id="message" name="message" required></textarea>
-                
-                <button type="submit">Send Message</button>
-            </form>
+import React from "react";
+import "./ContactUs.css";
+
+const ContactUs = () => {
+  return (
+    <div className="contact-container">
+      <h1 className="contact-heading">Contact Us</h1>
+      <p className="contact-subheading">We’d love to hear from you!</p>
+
+      <div className="contact-content">
+        <div className="contact-info">
+          <h2>Get in Touch</h2>
+          <p><strong>Address:</strong> 123 Learning Lane, Edutech City, IN</p>
+          <p><strong>Phone:</strong> +91 98765 43210</p>
+          <p><strong>Email:</strong> contact@edutech.com</p>
+          <p><strong>Hours:</strong> Mon - Fri, 9AM - 6PM</p>
+
+          <div className="social-links">
+            <a href="#" className="social-icon linkedin">LinkedIn</a>
+            <a href="#" className="social-icon twitter">Twitter</a>
+            <a href="#" className="social-icon instagram">Instagram</a>
+          </div>
         </div>
-    );
-}
+
+        <div className="contact-form">
+          <h2>Send a Message</h2>
+          <form>
+            <input type="text" placeholder="Your Name" disabled />
+            <input type="email" placeholder="Your Email" disabled />
+            <input type="text" placeholder="Subject" disabled />
+            <textarea placeholder="Your Message" rows="5" disabled></textarea>
+            <button type="button" disabled title="Static page only">Send Message</button>
+          </form>
+        </div>
+      </div>
+
+      <div className="map-container">
+        <iframe
+          title="Google Map"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.219340903797!2d144.96332!3d-37.814217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f0a66b0d%3A0x5045675218ce6e0!2sIndia!5e0!3m2!1sen!2sin!4v1610000000000"
+          allowFullScreen=""
+          loading="lazy"
+        ></iframe>
+      </div>
+    </div>
+  );
+};
+
 export default ContactUs;

@@ -1,0 +1,94 @@
+.courses-page {
+    padding: 60px 40px;
+    background-color: #f4edf9;
+  }
+  
+  .courses-title {
+    text-align: center;
+    font-size: 42px;
+    color: #6a1b9a;
+    margin-bottom: 60px;
+    font-weight: bold;
+  }
+  
+  .course-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    margin-bottom: 60px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .course-block:hover {
+    transform: translateY(-8px);
+  }
+  
+  .course-block.reverse {
+    flex-direction: row-reverse;
+  }
+  
+  .course-image-container {
+    flex: 1;
+  }
+  
+  .course-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .course-content {
+    flex: 1;
+    padding: 40px;
+  }
+  
+  .course-content h2 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+  
+  .course-content p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 24px;
+  }
+  
+  .enroll-btn {
+    padding: 12px 28px;
+    background-color: #6a1b9a;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .enroll-btn:hover {
+    background-color: #4a1272;
+    transform: scale(1.05);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .course-block,
+    .course-block.reverse {
+      flex-direction: column;
+    }
+  
+    .course-image {
+      height: 200px;
+    }
+  
+    .course-content {
+      padding: 25px;
+      text-align: center;
+    }
+  }
+  

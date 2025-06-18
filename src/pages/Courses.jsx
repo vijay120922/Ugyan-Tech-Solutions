@@ -1,21 +1,47 @@
+import React from "react";
+import "./Courses.css";
 
+const courses = [
+  {
+    title: "Full Stack Web Development",
+    description: "Build complete applications using the MERN stack from scratch.",
+    image: "/course1.jpg",
+  },
+  {
+    title: "Data Science & Analytics",
+    description: "Explore data with Python, Pandas, and powerful visualization tools.",
+    image: "/course2.jpg",
+  },
+  {
+    title: "Frontend Development",
+    description: "Design responsive interfaces using HTML, CSS, JS & React.",
+    image: "/course3.jpg",
+  },
+  {
+    title: "Python for Beginners",
+    description: "Start coding with the easiest and most powerful language.",
+    image: "/course4.jpg",
+  },
+];
 
 const Courses = () => {
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-       
-      <h1 className="text-3xl font-bold mb-6">Courses</h1>
-      <p className="text-lg mb-4">
-        Explore our wide range of courses designed to help you succeed in your career.
-      </p>
-      <ul className="list-disc pl-5 space-y-2">
-        <li>Web Development</li>
-        <li>Data Science</li>
-        <li>Machine Learning</li>
-        <li>Mobile App Development</li>
-        <li>Cloud Computing</li>
-      </ul>
+    <div className="courses-page">
+      <h1 className="courses-title">Our Courses</h1>
+      {courses.map((course, index) => (
+        <div className={`course-block ${index % 2 !== 0 ? "reverse" : ""}`} key={index}>
+          <div className="course-image-container">
+            <img src={course.image} alt={course.title} className="course-image" />
+          </div>
+          <div className="course-content">
+            <h2>{course.title}</h2>
+            <p>{course.description}</p>
+            <button className="enroll-btn">Enroll Now</button>
+          </div>
+        </div>
+      ))}
     </div>
   );
-}
+};
+
 export default Courses;
