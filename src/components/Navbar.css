@@ -1,55 +1,13 @@
-.logo{
-    display: inline;
-    width: 200px;
-    height: 50px;
+.gradient-bg{
+  background: linear-gradient(to right,#8570ee,white);
+  background-size: 200%;
+  animation: movingBg 3s linear infinite alternate ;
 }
-.nav{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}.nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 32px;
-    
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
+@keyframes movingBg{
+  to{
+    background-position: 100% 20% ;
   }
-  
-  /* Logo */
-  .logo {
-    width: 140px;
-    height: auto;
-    object-fit: contain;
-  }
-  
-  /* Navigation links container */
-  .nav-center {
-    display: flex;
-    gap: 24px;
-    flex: 1;
-    justify-content: center;
-  }
-  
-  /* NavLinks */
-  .nav a {
-    color: black;
-    text-decoration: none;
-    font-weight: 500;
-    transition: 0.3s;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  .nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 6px 12px;
-    border-radius: 6px;
-  }
-  
+}
   .login-btn {
     display: flex;
     align-items: center;
@@ -57,8 +15,7 @@
     padding: 8px 16px;
     border: 2px solid white;
     background: transparent;
-    color: white;
-    border-radius: 9999px; /* fully rounded */
+    border-radius: 200px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -66,15 +23,17 @@
   
   .login-btn:hover {
     background-color: white;
-    color: #6b21a8; /* purple text on hover */
+    color: #6b21a8; 
   }
   
   .login-arrow {
-    display: inline-block;
+    display: flex;
     background-color: white;
     color: #6b21a8;
     border-radius: 50%;
     padding: 4px;
+    justify-content: center;
+    align-items: center;
     font-size: 14px;
     transition: transform 0.3s ease;
   }
@@ -82,4 +41,32 @@
   .login-btn:hover .login-arrow {
     transform: translateX(4px);
   }
-  
+  .login-btn:hover{
+    border: 2px solid #6b21a8c7;
+  }
+.nav-item{
+  color: rgb(0, 0, 0);
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.5s ease-in forwards ;
+  animation-delay: calc(var(--i)*0.2s);
+  transition: all 0.2s ease-in;
+  font-weight: 500;
+  padding:5px 10px;
+  border-radius: 10px;
+}
+@keyframes slideDown{
+  to{
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+.nav-item:hover{
+  color: #6b21a8;
+  background-color: rgba(255, 255, 255, 0.185);
+  backdrop-filter: blur(5px);
+}
+.nav-item:focus{
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

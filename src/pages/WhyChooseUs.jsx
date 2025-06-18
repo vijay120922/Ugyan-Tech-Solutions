@@ -2,14 +2,13 @@ import './wcw.css';
 
 const WhyChooseUs = () => {
   return (
-    <section className="why-choose-us">
+    <section className="why-choose-us mt-5">
       <h2>Why Choose Us?</h2>
       <p className="subheading">
         Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations
       </p>
 
       <div className="choose-grid">
-        {/* Row 1: Image Left, Text Right */}
         <div className="row">
           <div className="image-box green-bg">
             <img src="/man1.png" alt="Team Member 1" />
