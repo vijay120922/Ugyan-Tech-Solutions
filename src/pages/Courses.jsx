@@ -4,12 +4,14 @@ import "./Courses.css";
 const courses = [
   {
     title: "Full Stack Web Development",
-    description: "Build complete applications using the MERN stack from scratch.",
+    description:
+      "Build complete applications using the MERN stack from scratch.",
     image: "/course1.jpg",
   },
   {
     title: "Data Science & Analytics",
-    description: "Explore data with Python, Pandas, and powerful visualization tools.",
+    description:
+      "Explore data with Python, Pandas, and powerful visualization tools.",
     image: "/course2.jpg",
   },
   {
@@ -26,12 +28,19 @@ const courses = [
 
 const Courses = () => {
   return (
-    <div className="courses-page">
+    <div className="courses-page mt-5">
       <h1 className="courses-title">Our Courses</h1>
       {courses.map((course, index) => (
-        <div className={`course-block ${index % 2 !== 0 ? "reverse" : ""}`} key={index}>
+        <div
+          className={`course-block ${index % 2 !== 0 ? "reverse" : ""}`}
+          key={index}
+        >
           <div className="course-image-container">
-            <img src={course.image} alt={course.title} className="course-image" />
+            <img
+              src={course.image}
+              alt={course.title}
+              className="course-image"
+            />
           </div>
           <div className="course-content">
             <h2>{course.title}</h2>

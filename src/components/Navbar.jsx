@@ -1,38 +1,63 @@
-import { NavLink } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react'; // Optional icon lib like lucide-react
-import './Navbar.css'; // Import your custom CSS for Navbar
+import { NavLink } from "react-router-dom";
+import { ArrowRight } from "lucide-react"; // Optional icon lib like lucide-react
+import "./Navbar.css"; // Import your custom CSS for Navbar
+import { useEffect, useState } from "react";
 
 const Navbar = () => {
-  const linkClass = ({ isActive }) =>
-    `text-black font-medium px-4 py-2 hover:text-purple-800 ${
-      isActive ? 'underline underline-offset-4' : ''
-    }`;
+  const [isAtTop, setIsAtTop] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsAtTop(window.scrollY === 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <nav className="bg-transparent backdrop-blur-sm shadow-md sticky top-0 z-50">
- <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
-        {/* Left: Logo */}
-        <div className="nav">
-  {/* Left: Logo */}
-  <img className="logo" src="logo1.png" alt="Logo" />
+    <nav
+      className={`${
+        isAtTop ? "bg-transparent" : "gradient-bg shadow-xl shadow-gray-500"
+      }  backdrop-blur-sm fixed top-0 z-50 transition-all duration-150 rounded-b-3xl`}
+    >
+      <div className="flex justify-around p-4 items-center">
+        <img
+          className="object-contain w-[15%] cursor-pointer"
+          src="logo1.png"
+          alt="Logo"
+        />
 
-  {/* Center: Navigation Links */}
-  <div className="nav-center">
-    <NavLink to="/" className={linkClass}>Home</NavLink>
-    <NavLink to="/courses" className={linkClass}>Courses</NavLink>
-    <NavLink to="/why-choose-us" className={linkClass}>Why Choose Us</NavLink>
-    <NavLink to="/about-us" className={linkClass}>About Us</NavLink>
-    <NavLink to="/contact-us" className={linkClass}>Contact Us</NavLink>
-  </div>
+        <div className="flex gap-11 w-[60%] justify-center text-[1.1em]">
+          <NavLink to="/" className="nav-item" style={{ "--i": 1 }}>
+            Home
+          </NavLink>
+          <NavLink to="/courses" className="nav-item" style={{ "--i": 2 }}>
+            Courses
+          </NavLink>
+          <NavLink
+            to="/why-choose-us"
+            className="nav-item"
+            style={{ "--i": 3 }}
+          >
+            Why Choose Us
+          </NavLink>
+          <NavLink to="/about-us" className="nav-item" style={{ "--i": 4 }}>
+            About Us
+          </NavLink>
+          <NavLink to="/contact-us" className="nav-item" style={{ "--i": 5 }}>
+            Contact Us
+          </NavLink>
+        </div>
 
-  {/* Right: Login/Signup */}
-  <button className="login-btn">
-  Login / Sign Up
-  <span className="login-arrow">
-    <ArrowRight size={16} />
-  </span>
-</button>
-</div>
+        <button className="login-btn text-gray-700">
+          Login / Sign Up
+          <span className="login-arrow">
+            <ArrowRight size={16} />
+          </span>
+        </button>
       </div>
     </nav>
   );
