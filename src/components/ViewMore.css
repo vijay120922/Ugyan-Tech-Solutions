@@ -10,6 +10,7 @@
 .course-title-animated {
   text-align: center;
   font-size: 2.8rem;
+  padding-top: 50px;
   font-weight: 800;
   background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
   -webkit-background-clip: text;
@@ -196,4 +197,52 @@
   gap: 20px;
   margin: 30px 0;
   flex-wrap: wrap;
+}
+.details-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #faf7ff;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  flex-wrap: wrap;
+}
+
+.lessons-column, .extras-column {
+  flex: 1;
+  min-width: 280px;
+}
+
+.lessons-column h3,
+.extras-column h3 {
+  font-size: 20px;
+  color: #6a1b9a;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-bottom: 2px solid #6a1b9a;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.lessons-column ul,
+.extras-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.lessons-column li,
+.extras-column li {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  padding-left: 10px;
+}
+
+.duration {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #4a1272;
 }

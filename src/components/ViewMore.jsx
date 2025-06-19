@@ -35,25 +35,27 @@ const ViewMore = () => {
         </div>
 
         {/* Lessons & What You Get Section */}
-        <div className="details-row">
-          <div className="lessons-column">
-            <h3>What You'll Learn</h3>
-            <ul>
-              <li>Lesson 1: Introduction</li>
-              <li>Lesson 2: Project Setup</li>
-              <li>Lesson 3: Hands-on Practice</li>
-            </ul>
-          </div>
+       <div className="details-row">
+  <div className="lessons-column">
+    <h3>What You'll Learn</h3>
+    <ul>
+      <li>✔️ Lesson 1: Introduction</li>
+      <li>✔️ Lesson 2: Project Setup</li>
+      <li>✔️ Lesson 3: Hands-on Practice</li>
+    </ul>
+    <p className="duration">⏱️ Total Duration: 15 Hours</p>
+  </div>
 
-          <div className="extras-column">
-            <h3>What You Get</h3>
-            <ul>
-              <li> Lifetime Access</li>
-              <li>Certificate of Completion</li>
-              <li>Downloadable Resources</li>
-            </ul>
-          </div>
-        </div>
+  <div className="extras-column">
+    <h3>What You Get</h3>
+    <ul>
+      <li>✔️ Lifetime Access</li>
+      <li>✔️ Certificate of Completion</li>
+      <li>✔️ Downloadable Resources</li>
+    </ul>
+  </div>
+</div>
+
 
         <button className="go-back-btn" onClick={() => navigate("/courses")}>
           ← Go Back to Courses
