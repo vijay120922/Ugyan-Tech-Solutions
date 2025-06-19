@@ -1,8 +1,10 @@
 import React from "react";
 import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
+import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import WhyChooseUs from './WhyChooseUs';
 import CoursesSection from "./CoursesSection";
+import ContactUsSection from "../components/ContactUsSection";
 import Footer from '../components/Footer';
 import './HomePage.css'; 
 
@@ -30,11 +32,19 @@ const HomePage = () => {
       <section className="carousel-section">
         <Carousel />
       </section>
+      
+      <section>
+        <CoursesSection />
+      </section>
+      
+      <section>
+        <WhyChooseUsSection />
+      </section>
       <section className="why-choose-section">
         <WhyChooseUs />
       </section>
       <section>
-        <CoursesSection />
+        <ContactUsSection />
       </section>
     </>
   );
