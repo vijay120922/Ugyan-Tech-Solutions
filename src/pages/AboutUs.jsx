@@ -15,7 +15,7 @@ const AboutUs = () => {
       {/* Vision & Mission */}
       <div className="vision-mission">
         <div className="card">
-          <h3>📊 Vision</h3>
+          <h2>📊 Vision</h2>
           <p>
             At UGYAN Learning, our vision is to create a world where learning is celebrated,
             knowledge acquisition is limitless, nurturing talent is paramount, and excellence
@@ -24,7 +24,7 @@ const AboutUs = () => {
           </p>
         </div>
         <div className="card">
-          <h3>🎓 Mission</h3>
+          <h2>🎓 Mission</h2>
           <p>
             Our mission is to cultivate a dynamic learning ecosystem that empowers individuals to embark on
             a journey of discovery, acquisition, and mastery. Through innovative programs, personalized support,
