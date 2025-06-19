@@ -13,52 +13,59 @@ const AboutUs = () => {
       </div>
 
       {/* Vision & Mission */}
-      <div className="vision-mission">
-        <div className="card">
-          <h2>📊 Vision</h2>
-          <p>
-            At UGYAN Learning, our vision is to create a world where learning is celebrated,
-            knowledge acquisition is limitless, nurturing talent is paramount, and excellence
-            is the standard in every pursuit. We envision a community where individuals thrive
-            through continuous growth and development, shaping a brighter future for generations to come.
-          </p>
-        </div>
-        <div className="card">
-          <h2>🎓 Mission</h2>
-          <p>
-            Our mission is to cultivate a dynamic learning ecosystem that empowers individuals to embark on
-            a journey of discovery, acquisition, and mastery. Through innovative programs, personalized support,
-            and collaborative partnerships, we strive to nurture talent, foster creativity, and inspire a
-            lifelong passion for learning.
-          </p>
-        </div>
-      </div>
+      {/* Vision & Mission */}
+<div className="vision-mission">
+  <div className="card">
+    <div className="card-header">
+      <h2 className="card-title">Vision</h2>
+    </div>
+    <p className="card-description">
+      At UGYAN Learning, our vision is to create a world where learning is celebrated,
+      knowledge acquisition is limitless, nurturing talent is paramount, and excellence
+      is the standard in every pursuit. We envision a community where individuals thrive
+      through continuous growth and development, shaping a brighter future for generations to come.
+    </p>
+  </div>
+  <div className="card">
+    <div className="card-header">
+      <h2 className="card-title">Mission</h2>
+    </div>
+    <p className="card-description">
+      Our mission is to cultivate a dynamic learning ecosystem that empowers individuals to embark on
+      a journey of discovery, acquisition, and mastery. Through innovative programs, personalized support,
+      and collaborative partnerships, we strive to nurture talent, foster creativity, and inspire a
+      lifelong passion for learning.
+    </p>
+  </div>
+</div>
 
       {/* Ugyan Description Section */}
-      <div className="ugyan-description">
-        <div className="image-group">
-          <img src="/course1.jpg" alt="Student 1" className="large-img" />
-          <img src="/course2.jpg" alt="Student 2" className="small-img" />
-        </div>
-        <div className="info-box">
-          <h2>Welcome to Ugyan</h2>
-          <p>
-            UGyan is built on the foundation that knowledge is the key to boundless possibilities.
-            By equipping yourself with knowledge, you gain the tools and understanding to break through
-            barriers and reach your full potential.
-          </p>
-          <p>
-            UGyan's motto, "Unlock Your Knowledge," reflects this belief. It’s a powerful call to action,
-            urging individuals to take charge of their learning journey and use knowledge as the springboard
-            to achieving their dreams.
-          </p>
-          <div className="features">
-            <span>📚 Industry Knowledge</span>
-            <span>💻 Online Courses</span>
-          </div>
-          <button className="enroll-btn">ENROLL TODAY →</button>
-        </div>
-      </div>
+      <div className="ugyan-description reverse-layout">
+  <div className="info-box card-animate">
+    <h2>Welcome to Ugyan</h2>
+    <p>
+      UGyan is built on the foundation that knowledge is the key to boundless possibilities.
+      By equipping yourself with knowledge, you gain the tools and understanding to break through
+      barriers and reach your full potential.
+    </p>
+    <p>
+      UGyan's motto, "Unlock Your Knowledge," reflects this belief. It’s a powerful call to action,
+      urging individuals to take charge of their learning journey and use knowledge as the springboard
+      to achieving their dreams.
+    </p>
+    <div className="features">
+      <span>📚 Industry Knowledge</span>
+      <span>💻 Online Courses</span>
+    </div>
+    <button className="enroll-btn">ENROLL TODAY →</button>
+  </div>
+
+  <div className="image-group">
+    <img src="/course1.jpg" alt="Course 1" className="large-img" />
+    <img src="/course2.jpg" alt="Course 2" className="small-img" />
+  </div>
+</div>
+
 
       {/* Team Section */}
       <div className="choose-grid">
