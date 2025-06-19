@@ -1,38 +1,84 @@
-import React from 'react';
 import './WhyChooseUs.css';
+
+const highlights = [
+  {
+    title: "Top IIT Mentors",
+    description: "Learn from the brightest minds who bring deep insights and industry expertise.",
+    emoji: "🎓"
+  },
+  {
+    title: "Flexible Learning",
+    description: "Self-paced modules with lifetime access so you can learn anytime, anywhere.",
+    emoji: "🕒"
+  },
+  {
+    title: "Affordable Pricing",
+    description: "High-quality education at a cost that won't burden your pockets.",
+    emoji: "💰"
+  },
+  {
+    title: "Internship Certificate",
+    description: "Earn a certificate upon completing your internship, boosting your portfolio.",
+    emoji: "📄"
+  },
+  {
+    title: "Real World Projects",
+    description: "Hands-on projects designed to simulate real job tasks and industry challenges.",
+    emoji: "💻"
+  },
+  {
+    title: "Course Completion Certificate",
+    description: "Every course comes with a valuable completion certificate to showcase your skills.",
+    emoji: "🏆"
+  }
+];
+
+const testimonials = [
+  {
+    name: "Aarav Mehta",
+    image: "/course1.jpg",
+    review: "Ugyan Tech changed the way I learn. The mentors are truly top-tier and the support system is fantastic!"
+  },
+  {
+    name: "Saanvi Sharma",
+    image: "/course2.jpg",
+    review: "The real-world projects and the flexibility of the program helped me grow at my pace. Highly recommended!"
+  },
+  {
+    name: "Rohan Verma",
+    image: "/course3.jpg",
+    review: "Internship + certification = perfect package. I feel job-ready and confident after completing my course."
+  }
+];
 
 const WhyChooseUs = () => {
   return (
-    <div className="why-choose-container">
-      <h1 className="why-main-heading">Why Choose Ugyan Tech?</h1>
-      <p className="why-subheading">Empowering your future with real-world skills and expert guidance.</p>
+    <div className="why-choose-us-page">
+      <section className="highlight-section">
+        <h2 className="section-title">Why Choose Ugyan Tech?</h2>
+        <div className="highlight-grid">
+          {highlights.map((item, index) => (
+            <div className="highlight-card" key={index}>
+              <div className="highlight-emoji">{item.emoji}</div>
+              <h3>{item.title}</h3>
+              <p>{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="features-grid">
-        <div className="feature-box">🎓 Top IIT Mentors</div>
-        <div className="feature-box">📚 Easy Learning Modules</div>
-        <div className="feature-box">💼 Real World Projects</div>
-        <div className="feature-box">🧾 Internship Certificate</div>
-        <div className="feature-box">🪪 Course Completion Certificate</div>
-        <div className="feature-box">💰 Affordable Pricing</div>
-        <div className="feature-box">⏰ Flexible Scheduling</div>
-        <div className="feature-box">🚀 Career Guidance</div>
-      </div>
-
-      <h2 className="testimonial-heading">What Our Students Say</h2>
-      <div className="testimonials">
-        <div className="testimonial-card">
-          <p className="testimonial-text">"The mentors are super helpful. The real-world projects gave me confidence to apply for internships!"</p>
-          <h4>- Anjali, B.Tech CSE</h4>
+      <section className="testimonial-section">
+        <h2 className="testimonial-title">Hear from Our Students</h2>
+        <div className="testimonial-grid">
+          {testimonials.map((t, index) => (
+            <div className="testimonial-card" key={index}>
+              <img src={t.image} alt={t.name} className="testimonial-img" />
+              <p className="testimonial-review">"{t.review}"</p>
+              <h4 className="testimonial-name">- {t.name}</h4>
+            </div>
+          ))}
         </div>
-        <div className="testimonial-card">
-          <p className="testimonial-text">"Affordable and high-quality content. Loved the flexibility to learn at my own pace."</p>
-          <h4>- Rohan, Data Science Enthusiast</h4>
-        </div>
-        <div className="testimonial-card">
-          <p className="testimonial-text">"The certificates and practical exposure helped me build a solid resume. Highly recommend!"</p>
-          <h4>- Sneha, Final Year Student</h4>
-        </div>
-      </div>
+      </section>
     </div>
   );
 };
