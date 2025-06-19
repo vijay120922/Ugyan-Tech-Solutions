@@ -21,12 +21,12 @@ const Navbar = () => {
     <nav
       className={`${
         isAtTop ? "bg-transparent" : "gradient-bg shadow-xl shadow-gray-500"
-      }  backdrop-blur-sm fixed top-0 z-50 transition-all duration-150 rounded-b-3xl`}
+      }  w-[100%] backdrop-blur-sm fixed top-0 z-50 transition-all duration-150 rounded-b-3xl`}
     >
       <div className="flex justify-around p-4 items-center">
         <img
           className="object-contain w-[15%] cursor-pointer"
-          src="logo1.png"
+          src="/logo1.png"
           alt="Logo"
         />
 

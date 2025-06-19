@@ -7,6 +7,7 @@ const ViewMore = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const course = location.state?.course;
+  console.log(course);
 
   if (!course) {
     return (
