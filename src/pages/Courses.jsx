@@ -47,7 +47,7 @@ const Courses = () => {
           </div>
           <div className="course-content">
             <h2>{course.title}</h2>
-            <p>{course.description1}</p>
+            <p>{course.description}</p>
             <button
               className="enroll-btn"
               onClick={() =>

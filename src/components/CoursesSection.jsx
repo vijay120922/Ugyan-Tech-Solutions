@@ -5,29 +5,29 @@ import { ArrowRight } from "lucide-react";
 const courses = [
   {
     title: "Full Stack Web Development",
-    description1: "Learn to build dynamic websites using MERN stack.",
-    description:
+    description: "Learn to build dynamic websites using MERN stack.",
+    description1:
     "Master Full Stack Web Development using the powerful MERN stack – MongoDB, Express.js, React, and Node.js. This course is designed to help you build dynamic, data-driven web applications from scratch. You'll start by understanding the basics of frontend development using React, move on to creating robust backend APIs with Node.js and Express, and learn how to store and retrieve data using MongoDB. By the end of this course, you'll be able to build and deploy fully functional full-stack applications, such as e-commerce platforms, blogs, and admin dashboards, using just one programming language – JavaScript.",
     image: "/course1.jpg",
   },
   {
     title: "Data Science & Analytics",
-    description1: "Analyze data to uncover insights and trends.",
-    description:
+    description: "Analyze data to uncover insights and trends.",
+    description1:
       "Master Full Stack Web Development using the powerful MERN stack – MongoDB, Express.js, React, and Node.js. This course is designed to help you build dynamic, data-driven web applications from scratch. You'll start by understanding the basics of frontend development using React, move on to creating robust backend APIs with Node.js and Express, and learn how to store and retrieve data using MongoDB. By the end of this course, you'll be able to build and deploy fully functional full-stack applications, such as e-commerce platforms, blogs, and admin dashboards, using just one programming language – JavaScript.",
     image: "/course2.jpg",
   },
   {
     title: "Frontend        Development using react",
-    description1: "Master HTML, CSS, JavaScript and React.",
-    description:
+    description: "Master HTML, CSS, JavaScript and React.",
+    description1:
       "Master Full Stack Web Development using the powerful MERN stack – MongoDB, Express.js, React, and Node.js. This course is designed to help you build dynamic, data-driven web applications from scratch. You'll start by understanding the basics of frontend development using React, move on to creating robust backend APIs with Node.js and Express, and learn how to store and retrieve data using MongoDB. By the end of this course, you'll be able to build and deploy fully functional full-stack applications, such as e-commerce platforms, blogs, and admin dashboards, using just one programming language – JavaScript.",
     image: "/course3.jpg",
   },
   {
     title: "Python for         Beginners with ugyan",
-    description1: "Start your programming journey with Python.",
-    description:
+    description: "Start your programming journey with Python.",
+    description1:
       "Master Full Stack Web Development using the powerful MERN stack – MongoDB, Express.js, React, and Node.js. This course is designed to help you build dynamic, data-driven web applications from scratch. You'll start by understanding the basics of frontend development using React, move on to creating robust backend APIs with Node.js and Express, and learn how to store and retrieve data using MongoDB. By the end of this course, you'll be able to build and deploy fully functional full-stack applications, such as e-commerce platforms, blogs, and admin dashboards, using just one programming language – JavaScript.",
     image: "/course4.jpg",
   },
@@ -49,7 +49,7 @@ const CoursesSection = () => {
               className="course-image"
             />
             <h3 className="course-title">{course.title}</h3>
-            <p className="course-description">{course.description1}</p>
+            <p className="course-description">{course.description}</p>
             <button
   className="enroll-button"
   onClick={() =>

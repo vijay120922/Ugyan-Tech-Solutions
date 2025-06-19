@@ -25,7 +25,7 @@ const ViewMore = () => {
         {/* Image + Description Row */}
         <div className="course-info-row">
           <img src={course.image} alt={course.title} />
-          <p className="description-text">{course.description}</p>
+          <p className="description-text">{course.description1}</p>
         </div>
 
         {/* Enroll + Students Count */}
