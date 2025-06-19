@@ -14,12 +14,12 @@ const courses = [
     image: "/course2.jpg",
   },
   {
-    title: "Frontend Development",
+    title: "Frontend        Development using react",
     description: "Master HTML, CSS, JavaScript and React.",
     image: "/course3.jpg",
   },
   {
-    title: "Python for Beginners",
+    title: "Python for         Beginners with ugyan",
     description: "Start your programming journey with Python.",
     image: "/course4.jpg",
   },
