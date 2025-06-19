@@ -2,8 +2,8 @@ import React from "react";
 import Navbar from '../components/Navbar';
 import Carousel from '../components/Carousel';
 import WhyChooseUsSection from "../components/WhyChooseUsSection";
-import WhyChooseUs from './WhyChooseUs';
-import CoursesSection from "./CoursesSection";
+import AboutUsSection from '../components/AboutUsSection';
+import CoursesSection from "../components/CoursesSection";
 import ContactUsSection from "../components/ContactUsSection";
 import Footer from '../components/Footer';
 import './HomePage.css'; 
@@ -41,7 +41,7 @@ const HomePage = () => {
         <WhyChooseUsSection />
       </section>
       <section className="why-choose-section">
-        <WhyChooseUs />
+        <AboutUsSection />
       </section>
       <section>
         <ContactUsSection />

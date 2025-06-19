@@ -45,7 +45,7 @@ const Courses = () => {
           <div className="course-content">
             <h2>{course.title}</h2>
             <p>{course.description}</p>
-            <button className="enroll-btn">Enroll Now</button>
+            <button className="enroll-btn">View details</button>
           </div>
         </div>
       ))}

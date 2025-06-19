@@ -1,43 +1,39 @@
-import './wcw.css';
+import React from 'react';
+import './WhyChooseUs.css';
 
 const WhyChooseUs = () => {
   return (
-    <section className="why-choose-us mt-5">
-      <h2>Why Choose Us?</h2>
-      <p className="subheading">
-        Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations
-      </p>
+    <div className="why-choose-container">
+      <h1 className="why-main-heading">Why Choose Ugyan Tech?</h1>
+      <p className="why-subheading">Empowering your future with real-world skills and expert guidance.</p>
 
-      <div className="choose-grid">
-        <div className="row">
-          <div className="image-box green-bg">
-            <img src="/man1.png" alt="Team Member 1" />
-          </div>
-          <div className="text-box shadow-box">
-            <p>
-              <strong>Dr. Emily Chen</strong><br />
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. In excepturi quae blanditiis doloribus est, temporibus possimus unde nisi voluptatibus. Iusto voluptas ad aspernatur aperiam et eos unde asperiores quasi! Quaerat.
-            </p>
-          </div>
+      <div className="features-grid">
+        <div className="feature-box">🎓 Top IIT Mentors</div>
+        <div className="feature-box">📚 Easy Learning Modules</div>
+        <div className="feature-box">💼 Real World Projects</div>
+        <div className="feature-box">🧾 Internship Certificate</div>
+        <div className="feature-box">🪪 Course Completion Certificate</div>
+        <div className="feature-box">💰 Affordable Pricing</div>
+        <div className="feature-box">⏰ Flexible Scheduling</div>
+        <div className="feature-box">🚀 Career Guidance</div>
+      </div>
+
+      <h2 className="testimonial-heading">What Our Students Say</h2>
+      <div className="testimonials">
+        <div className="testimonial-card">
+          <p className="testimonial-text">"The mentors are super helpful. The real-world projects gave me confidence to apply for internships!"</p>
+          <h4>- Anjali, B.Tech CSE</h4>
         </div>
-
-        {/* Row 2: Text Left, Image Right + Arrow */}
-        <div className="row">
-          <div className="arrow-container">
-            <div className="text-box shadow-box">
-              <p>
-                <strong>Dr. Emily Chen</strong><br />
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi, tempore amet ipsa dolores quis, adipisci error esse ipsum delectus aut temporibus natus exercitationem eveniet quae. Natus laborum porro possimus nam!
-              </p>
-            </div>
-            {/* <img src="/arrow.jpng" alt="arrow" className="heart-arrow" /> */}
-          </div>
-          <div className="image-box peach-bg">
-            <img src="/man2.png" alt="Team Member 2" />
-          </div>
+        <div className="testimonial-card">
+          <p className="testimonial-text">"Affordable and high-quality content. Loved the flexibility to learn at my own pace."</p>
+          <h4>- Rohan, Data Science Enthusiast</h4>
+        </div>
+        <div className="testimonial-card">
+          <p className="testimonial-text">"The certificates and practical exposure helped me build a solid resume. Highly recommend!"</p>
+          <h4>- Sneha, Final Year Student</h4>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

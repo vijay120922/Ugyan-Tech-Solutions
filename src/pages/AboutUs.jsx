@@ -1,4 +1,4 @@
-import "./wcw.css";
+import "./AboutUs.css";
 
 const AboutUs = () => {
   return (
