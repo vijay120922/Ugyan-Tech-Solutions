@@ -1,0 +1,142 @@
+/* Container for the entire course details page */
+.view-more-container {
+  max-width: 800px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Course image styling */
+.view-more-container img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 🔥 Course title with gradient color + animation */
+.course-title-animated {
+  font-size: 3rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #efd5ff 0%, #515ada 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.4s ease, letter-spacing 0.4s ease;
+  margin-bottom: 25px;
+}
+
+.course-title-animated:hover {
+  transform: scale(1.05);
+  letter-spacing: 1.5px;
+  
+}
+
+/* 📦 Description box below the title */
+.course-description-box {
+  margin: 30px auto;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 700px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.course-description-box:hover {
+  background-color: #e9ecef;
+  transform: scale(1.02);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+/* 💰 Pricing section */
+.pricing {
+  margin: 20px 0;
+  font-size: 1.3rem;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #999;
+  margin-right: 10px;
+}
+
+.discounted-price {
+  color: green;
+  font-weight: bold;
+}
+
+.enroll-btn {
+  background-image: linear-gradient(to right, #B993D6 0%, #8CA6DB 51%, #B993D6 100%);
+  margin: 10px auto;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.enroll-btn:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.not-found {
+  padding: 50px;
+  text-align: center;
+}
+
+.not-found button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.not-found button:hover {
+  background-color: darkred;
+}
+
+/* 📱 Responsive for mobile */
+@media (max-width: 600px) {
+  .course-title-animated {
+    font-size: 2.2rem;
+  }
+
+  .course-description-box {
+    padding: 15px;
+  }
+
+  .enroll-btn {
+    width: 100%;
+  }
+}
+.go-back-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 0.95rem;
+}
+.go-back-btn:hover {
+  background-color: #5a6268;
+}

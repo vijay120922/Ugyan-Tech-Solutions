@@ -8,6 +8,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ViewMore from "./components/ViewMore";
+
 
 function App() {
   return (
@@ -20,6 +22,7 @@ function App() {
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/viewmore/:title" element={<ViewMore />} />
       </Routes>
       <Footer />
     </>

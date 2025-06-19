@@ -43,11 +43,15 @@ const CoursesSection = () => {
             <h3 className="course-title">{course.title}</h3>
             <p className="course-description">{course.description}</p>
             <button
-              className="enroll-button"
-              onClick={() => navigate("/courses")}
-            >
-              View More
-            </button>
+  className="enroll-button"
+  onClick={() =>
+    navigate(`/viewmore/${encodeURIComponent(course.title)}`, {
+      state: { course },
+    })
+  }
+>
+  View More
+</button>
           </div>
         ))}
       </div>
