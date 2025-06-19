@@ -4,6 +4,10 @@
     background: linear-gradient(to right, #e4d9f7, #f7f5fc);
     padding: 60px 20px;
     margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 1000px;
     border-radius: 20px;
     text-align: center;
@@ -31,6 +35,7 @@
     align-items: center;
     gap: 12px;
     width: 90%;
+    border: 1px solid;
     max-width: 900px;
     margin: 0 auto;
     flex-wrap: wrap; /* for better responsiveness */
@@ -45,26 +50,25 @@
     border-radius: 12px;
     border: 1px solid #ccc;
     outline: none;
+    align-items: center;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
   }
   
   .contact-textarea:focus {
     border-color: #6a1b9a;
-    box-shadow: 0 0 10px rgba(106, 27, 154, 0.1);
+    box-shadow: 0 0 15px rgba(105, 27, 154, 0.397);
   }
   
   .send-button {
-    background: linear-gradient(to right, #6a1b9a, #4a148c);
+    background: linear-gradient(to right, #6a1b9a,#874faa, #4a148c);
     color: white;
     border: none;
     padding: 14px 26px;
     border-radius: 30px;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
-    cursor: pointer;
     transition: background-position 0.4s ease, transform 0.2s ease;
     background-size: 200% auto;
-    white-space: nowrap; /* ensures button doesn't break into two lines */
   }
   
   .send-button:hover {
