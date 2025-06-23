@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { ArrowRight } from "lucide-react"; // Optional icon lib like lucide-react
 import "./Navbar.css"; // Import your custom CSS for Navbar
 import { useEffect, useState } from "react";
 
 const Navbar = () => {
   const [isAtTop, setIsAtTop] = useState(true);
-
+  const nav=useNavigate();
   useEffect(() => {
     const handleScroll = () => {
       setIsAtTop(window.scrollY === 0);
@@ -52,7 +52,7 @@ const Navbar = () => {
           </NavLink>
         </div>
 
-        <button className="login-btn text-gray-700">
+        <button className="login-btn text-gray-700" onClick={()=>nav('/loginorSignup')}>
           Login / Sign Up
           <span className="login-arrow">
             <ArrowRight size={16} />

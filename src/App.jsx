@@ -9,7 +9,7 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ViewMore from "./components/ViewMore";
-
+import LoginSignupPage from "./pages/Login-SignupPage";
 
 function App() {
   return (
@@ -23,6 +23,7 @@ function App() {
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/viewmore/:title" element={<ViewMore />} />
+        <Route path="/loginorSignup" element={<LoginSignupPage/>}/>
       </Routes>
       <Footer />
     </>
