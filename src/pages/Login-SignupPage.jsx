@@ -7,8 +7,10 @@ import { FaEye } from "react-icons/fa6";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa6";
 import { FaUserTag } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 import '../css/Login-SignupPage.css'
 const LoginSignupPage = () => {
+  const navigate=useNavigate();
   const [passVisible,setPassVisible]=useState(false);
   const [flip,setFlip]=useState(false);
   const [passVis,setPassVis]=useState(false);
@@ -17,19 +19,76 @@ const LoginSignupPage = () => {
   const [loginError,setLoginError]=useState({Email:'',Password:''});
   const [signUpInfo,setSignUpInfo]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
   const [signUpError,setSignUpError]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
-  function validateLogin(){
-    const newErrors={};
-    if(!loginInfo.Email.endsWith('@gmail.com')){
-        newErrors.Email="Invaild Email";
+  async function handleSignupSubmit() {
+    const isValid = validateSignup();
+    if (!isValid) return;
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: signUpInfo.firstName,
+          lastName: signUpInfo.lastName,
+          email: signUpInfo.Email,
+          password: signUpInfo.Password,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("Signup Successful!");
+        setFlip(false); // Flip back to login form
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
     }
-    if(loginInfo.Email.length===0){
-     newErrors.Email="No Email Adress Entered";
-    }
-    if(loginInfo.Password.length===0){
-      newErrors.Password="No Password Entered";
-    }
-    setLoginError(newErrors);
   }
+  async function handleLoginSubmit() {
+    validateLogin();
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: loginInfo.Email,
+          password: loginInfo.Password,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('token', data.token); // Save token for future requests
+        alert("Login Successful!");
+        navigate('/');
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
+    }
+  }
+
+  function validateLogin() {
+    const newErrors = {};
+    if (loginInfo.Email.trim() === "") {
+      newErrors.Email = "No Email Address Entered";
+    } else if (!loginInfo.Email.endsWith('@gmail.com')) {
+      newErrors.Email = "Invalid Email (must end with @gmail.com)";
+    }
+    if (loginInfo.Password.trim() === "") {
+      newErrors.Password = "No Password Entered";
+    }
+
+    setLoginError(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
+
   function validateSignup() {
     const newErrors = {};
     if (signUpInfo.firstName.trim() === "") {
@@ -80,7 +139,7 @@ const LoginSignupPage = () => {
                 <input 
                   type="email" 
                   placeholder="Email" 
-                  className="p-2 w-full focus:outline-none" 
+                  className="p-2 w-full focus:outline-none bg-transparent" 
                   onChange={(e)=>setLoginInfo({...loginInfo,Email:e.target.value})}/>
               </div>
               <div className="error">{loginError.Email}</div>
@@ -92,7 +151,7 @@ const LoginSignupPage = () => {
                   <input 
                     type={`${passVisible?"text":"password"}`} 
                     placeholder="Password" 
-                    className="p-2 w-full focus:outline-none "
+                    className="p-2 w-full focus:outline-none bg-transparent "
                     onChange={(e)=>setLoginInfo({...loginInfo,Password:e.target.value})}
                   />
                   <div className="absolute right-0 text-xl h-full px-3 flex justify-center items-center" onClick={()=>setPassVisible(!passVisible)}>
@@ -107,11 +166,11 @@ const LoginSignupPage = () => {
               <div className="font-semibold text-sm text-gray-700 cursor-pointer hover:underline">Forgot Password?</div>
             </div>
             <div className="flex justify-center w-[50%]" >
-                <button className="px-8 py-2 rounded-3xl text-black w-full font-bold gradientbutton-bg" onClick={validateLogin}>LOGIN</button>
+                <button className="px-8 py-2 rounded-3xl text-black w-full font-bold gradientbutton-bg" onClick={handleLoginSubmit}>LOGIN</button>
             </div>
             <div className="flex gap-2 items-center w-full justify-center ">
               <span className="font-semibold text-sm">Not a Member? </span>
-              <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-white" onClick={()=>setFlip(true)}>SIGN UP</button>
+              <button className="hover:bg-sky-800 border-2 text-black hover:text-white hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold" onClick={()=>setFlip(true)}>SIGN UP</button>
             </div>
          </div>
         <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black">
@@ -159,7 +218,7 @@ const LoginSignupPage = () => {
               <input 
                 type={`${passVis?'text':'password'}`} 
                 required 
-                className="p-4 w-full focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
+                className="p-4 w-full focus:outline-none focus:border-blue-500 bg-transparent cursor-pointer border-2 rounded-3xl font-semibold"
                 onChange={(e)=>setSignUpInfo({...signUpInfo,Password:e.target.value})}/>
               <div className="labelline absolute top-4 left-4 text-gray-700">Set Password</div>
               <div className="absolute right-4 top-6" onClick={()=>setPassVis(!passVis)}>
@@ -182,10 +241,10 @@ const LoginSignupPage = () => {
             </div>
             <div className="error">{signUpError.confirmPass}</div>
           </div>
-          <button className="gradientbutton-bg px-8 py-2 rounded-3xl text-black font-bold" onClick={validateSignup}>Create Account</button>
+          <button className="gradientbutton-bg px-8 py-2 rounded-3xl text-black font-bold" onClick={handleSignupSubmit}>Create Account</button>
           <div className="">
             <span className="font-semibold text-sm">Already a member?</span>
-            <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-white ml-2" onClick={()=>setFlip(false)}>Log In</button>
+            <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-black hover:text-white ml-2" onClick={()=>setFlip(false)}>Log In</button>
           </div>
         </div>
       </div>
