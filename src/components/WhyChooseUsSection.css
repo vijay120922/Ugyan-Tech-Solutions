@@ -1,61 +1,107 @@
-/* src/components/WhyChooseUs.css */
-
 .why-us-section {
-    background: linear-gradient(to right, #f9f6fc, #ece1f7);
-    padding: 60px 30px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-  }
-  
+  background: linear-gradient(to right, #f9f6fc, #ece1f7);
+  padding: 60px 30px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.why-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2d0b4e;
+}
+
+/* Responsive Grid Layout */
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.feature-card {
+  background-color: white;
+  width: 260px;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: default;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #53346D;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* === Responsive Design === */
+
+/* Tablets */
+@media (max-width: 992px) {
   .why-title {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 40px;
-    color: #2d0b4e;
+    font-size: 30px;
   }
-  
-  .features-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
-  }
-  
+
   .feature-card {
-    background-color: white;
-    width: 260px;
-    padding: 20px;
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: default;
+    width: 45%;
   }
-  
-  .feature-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Mobile Large */
+@media (max-width: 768px) {
+  .why-title {
+    font-size: 26px;
   }
-  
-  .feature-icon {
-    font-size: 36px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
+
+  .feature-card {
+    width: 80%;
   }
-  
-  .feature-card:hover .feature-icon {
-    transform: scale(1.2);
+}
+
+/* Mobile Small */
+@media (max-width: 480px) {
+  .why-title {
+    font-size: 22px;
   }
-  
+
+  .feature-card {
+    width: 100%;
+    padding: 16px;
+  }
+
   .feature-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 10px;
-    color: #53346D;
+    font-size: 18px;
   }
-  
+
   .feature-description {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.4;
+    font-size: 13px;
   }
-  
+
+  .feature-icon {
+    font-size: 30px;
+  }
+}
