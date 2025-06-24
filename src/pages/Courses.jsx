@@ -1,5 +1,5 @@
 import React from "react";
-import "./Courses.css";
+import "../css/Courses.css";
 import { useNavigate } from "react-router-dom";
 
 const courses = [

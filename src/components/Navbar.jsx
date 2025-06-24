@@ -1,11 +1,13 @@
-import { NavLink, useNavigate } from "react-router-dom";
-import { ArrowRight } from "lucide-react"; // Optional icon lib like lucide-react
-import "./Navbar.css"; // Import your custom CSS for Navbar
+import { NavLink, useNavigate,useLocation } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+import "./Navbar.css";
 import { useEffect, useState } from "react";
 
-const Navbar = () => {
+const Navbar = ({user}) => {
+  const location=useLocation();
   const [isAtTop, setIsAtTop] = useState(true);
   const nav=useNavigate();
+  console.log(user);
   useEffect(() => {
     const handleScroll = () => {
       setIsAtTop(window.scrollY === 0);
@@ -20,7 +22,7 @@ const Navbar = () => {
   return (
     <nav
       className={`${
-        isAtTop ? "bg-transparent" : "gradient-bg shadow-xl shadow-gray-500"
+        (isAtTop && location.pathname==='/') ? "bg-transparent" : "gradient-bg shadow-xl shadow-gray-500"
       }  w-[100%] backdrop-blur-sm fixed top-0 z-50 transition-all duration-150 rounded-b-3xl`}
     >
       <div className="flex justify-around p-4 items-center">
