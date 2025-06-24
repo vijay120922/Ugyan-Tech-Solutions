@@ -54,8 +54,8 @@ const AboutUs = () => {
       to achieving their dreams.
     </p>
     <div className="features">
-      <span>📚 Industry Knowledge</span>
-      <span>💻 Online Courses</span>
+      <span>Industry Knowledge</span>
+      <span> Online Courses</span>
     </div>
     <button className="enroll-btn">ENROLL TODAY →</button>
   </div>
