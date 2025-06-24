@@ -23,8 +23,8 @@ const ContactUs = () => {
         </div>
 
         <div className="contact-form">
-          <h2>Send a Message</h2>
           <form>
+            <h1>Send your queries here</h1>
             <input type="text" placeholder="Your Name" disabled />
             <input type="email" placeholder="Your Email" disabled />
             <input type="text" placeholder="Subject" disabled />
@@ -45,5 +45,6 @@ const ContactUs = () => {
     </div>
   );
 };
+
 
 export default ContactUs;
