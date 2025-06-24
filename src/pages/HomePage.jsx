@@ -6,7 +6,7 @@ import AboutUsSection from '../components/AboutUsSection';
 import CoursesSection from "../components/CoursesSection";
 import ContactUsSection from "../components/ContactUsSection";
 import Footer from '../components/Footer';
-import './HomePage.css'; 
+import '../css/HomePage.css'; 
 
 const HomePage = () => {
   return (

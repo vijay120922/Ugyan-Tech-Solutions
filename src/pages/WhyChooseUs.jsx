@@ -1,4 +1,4 @@
-import './WhyChooseUs.css';
+import '../css/WhyChooseUs.css';
 
 const highlights = [
   {

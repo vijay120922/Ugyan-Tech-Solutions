@@ -9,13 +9,43 @@ import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ViewMore from "./components/ViewMore";
-
+import LoginSignupPage from "./pages/Login-SignupPage";
+import { useState,useEffect } from "react";
 
 function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      const token = localStorage.getItem("token");
+      console.log(token);
+      if (!token) return;
+
+      try {
+        const res = await fetch("http://localhost:5000/api/users/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          setUser(data);
+        } else {
+          console.error("Failed to fetch user:", data.message);
+        }
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    };
+
+    fetchUser();
+  }, []);
+
   return (
     <>
       <ScrollToTop />
-      <Navbar />
+      <Navbar user={user}/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/courses" element={<Courses />} />
@@ -23,6 +53,7 @@ function App() {
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/viewmore/:title" element={<ViewMore />} />
+        <Route path="/loginorSignup" element={<LoginSignupPage/>}/>
       </Routes>
       <Footer />
     </>

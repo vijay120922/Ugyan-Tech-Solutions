@@ -1,0 +1,255 @@
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import { GoogleLogin } from "@react-oauth/google";
+import { FaUserTie } from "react-icons/fa6";
+import { CiLock } from "react-icons/ci";
+import { FaEyeSlash } from "react-icons/fa";
+import { FaEye } from "react-icons/fa6";
+import { useState } from "react";
+import { FaUser } from "react-icons/fa6";
+import { FaUserTag } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
+import '../css/Login-SignupPage.css'
+const LoginSignupPage = () => {
+  const navigate=useNavigate();
+  const [passVisible,setPassVisible]=useState(false);
+  const [flip,setFlip]=useState(false);
+  const [passVis,setPassVis]=useState(false);
+  const [confirmPassVis,setConfirmPassVis]=useState(false);
+  const [loginInfo,setLoginInfo]=useState({Email:"",Password:""});
+  const [loginError,setLoginError]=useState({Email:'',Password:''});
+  const [signUpInfo,setSignUpInfo]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
+  const [signUpError,setSignUpError]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
+  async function handleSignupSubmit() {
+    const isValid = validateSignup();
+    if (!isValid) return;
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/signup', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: signUpInfo.firstName,
+          lastName: signUpInfo.lastName,
+          email: signUpInfo.Email,
+          password: signUpInfo.Password,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        alert("Signup Successful!");
+        setFlip(false); // Flip back to login form
+      } else {
+        alert(data.message || "Signup failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
+    }
+  }
+  async function handleLoginSubmit() {
+    validateLogin();
+
+    try {
+      const res = await fetch('http://localhost:5000/api/auth/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: loginInfo.Email,
+          password: loginInfo.Password,
+        }),
+      });
+
+      const data = await res.json();
+      if (res.ok) {
+        localStorage.setItem('token', data.token); // Save token for future requests
+        alert("Login Successful!");
+        navigate('/');
+      } else {
+        alert(data.message || "Login failed");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong");
+    }
+  }
+
+  function validateLogin() {
+    const newErrors = {};
+    if (loginInfo.Email.trim() === "") {
+      newErrors.Email = "No Email Address Entered";
+    } else if (!loginInfo.Email.endsWith('@gmail.com')) {
+      newErrors.Email = "Invalid Email (must end with @gmail.com)";
+    }
+    if (loginInfo.Password.trim() === "") {
+      newErrors.Password = "No Password Entered";
+    }
+
+    setLoginError(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
+
+  function validateSignup() {
+    const newErrors = {};
+    if (signUpInfo.firstName.trim() === "") {
+      newErrors.firstName = "First Name not entered";
+    }
+    if (signUpInfo.lastName.trim() === "") {
+      newErrors.lastName = "Last Name not entered";
+    }
+    if (signUpInfo.Email.trim() === "") {
+      newErrors.Email = "No Mail Address Entered!";
+    } else if (!signUpInfo.Email.endsWith("@gmail.com")) {
+      newErrors.Email = "Only Gmail addresses allowed";
+    }
+    if (!signUpInfo.Password) {
+      newErrors.Password = "No Password Entered!";
+    } else {
+      if (signUpInfo.Password.length < 8) {
+        newErrors.Password = "Password must be at least 8 characters long";
+      } else if (!/[A-Z]/.test(signUpInfo.Password)) {
+        newErrors.Password = "Must include at least one uppercase letter";
+      } else if (!/[a-z]/.test(signUpInfo.Password)) {
+        newErrors.Password = "Must include at least one lowercase letter";
+      } else if (!/[0-9]/.test(signUpInfo.Password)) {
+        newErrors.Password = "Must include at least one number";
+      } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(signUpInfo.Password)) {
+        newErrors.Password = "Must include at least one special character";
+      }
+    }
+    if (signUpInfo.Password && signUpInfo.confirmPass !== signUpInfo.Password) {
+      newErrors.confirmPass = "Passwords do not match";
+    }
+    setSignUpError(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
+
+  return (
+    <>
+    <div className="w-full min-h-screen bg-gray-200 card-container">
+      <div className={`card-flip ${flip&&'signup'}`}>
+          <div className=" loginform flex flex-col gap-5 border-black items-center justify-center rounded-xl py-5  login-bg shadow-2xl shadow-black">
+            <header className="text-3xl font-bold mb-1.5 flex flex-col items-center gap-2">
+              <div><FaUser size={50}/></div>
+              Login Here
+            </header>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row font-semibold border shadow-lg shadow-gray-700">
+                <FaUserTie size={45} className="p-3.5 border-r"/>
+                <input 
+                  type="email" 
+                  placeholder="Email" 
+                  className="p-2 w-full focus:outline-none bg-transparent" 
+                  onChange={(e)=>setLoginInfo({...loginInfo,Email:e.target.value})}/>
+              </div>
+              <div className="error">{loginError.Email}</div>
+            </div>
+            <div className="flex flex-col w-full">
+              <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700">
+                <CiLock size={50} className="p-3.5 border-r"/>
+                <div className="flex w-full relative">
+                  <input 
+                    type={`${passVisible?"text":"password"}`} 
+                    placeholder="Password" 
+                    className="p-2 w-full focus:outline-none bg-transparent "
+                    onChange={(e)=>setLoginInfo({...loginInfo,Password:e.target.value})}
+                  />
+                  <div className="absolute right-0 text-xl h-full px-3 flex justify-center items-center" onClick={()=>setPassVisible(!passVisible)}>
+                    {passVisible?<FaEyeSlash color="black" className="cursor-pointer"/>:<FaEye color="black" className="cursor-pointer"/>}
+                  </div>
+                </div>
+              </div>
+              <div className="error">{loginError.Password}</div>
+            </div>
+            <div className="flex justify-between w-full">
+              <div className="text-md flex items-center gap-1 font-semibold"><input type="checkbox" className="cursor-pointer"/>Remember Me</div>
+              <div className="font-semibold text-sm text-gray-700 cursor-pointer hover:underline">Forgot Password?</div>
+            </div>
+            <div className="flex justify-center w-[50%]" >
+                <button className="px-8 py-2 rounded-3xl text-black w-full font-bold gradientbutton-bg" onClick={handleLoginSubmit}>LOGIN</button>
+            </div>
+            <div className="flex gap-2 items-center w-full justify-center ">
+              <span className="font-semibold text-sm">Not a Member? </span>
+              <button className="hover:bg-sky-800 border-2 text-black hover:text-white hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold" onClick={()=>setFlip(true)}>SIGN UP</button>
+            </div>
+         </div>
+        <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black">
+          <div className="text-3xl font-bold flex flex-col items-center gap-2">
+            <FaUserTag size={60} color="white"/>
+            <header>Sign Up</header>
+          </div>
+          <div className="flex gap-10 w-full">
+            <div className="flex flex-col w-full">
+              <div className="flex relative">
+                <input 
+                  type="text" 
+                  required 
+                  className="p-4 focus:outline-none focus:border-blue-500 border-2 cursor-pointer rounded-3xl font-semibold" 
+                  onChange={(e)=>setSignUpInfo({...signUpInfo,firstName:e.target.value})}/>
+                <div className="labelline absolute top-4 left-4 text-gray-700">First Name</div>
+              </div>
+              <div className="error">{signUpError.firstName}</div>
+            </div>  
+            <div className="flex flex-col w-full">
+              <div className="flex relative">
+                <input 
+                  type="text" 
+                  required 
+                  className="p-4 focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
+                  onChange={(e)=>setSignUpInfo({...signUpInfo,lastName:e.target.value})}/>
+                <div className="labelline absolute top-4 left-4 text-gray-700">Last Name</div>
+              </div>
+              <div className="error">{signUpError.lastName}</div>
+            </div>
+          </div>
+          <div className="flex flex-col w-full">
+            <div className="relative w-full">
+              <input 
+                type="text" 
+                required 
+                className="p-4 w-full focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
+                onChange={(e)=>setSignUpInfo({...signUpInfo,Email:e.target.value})}/>
+              <div className="labelline absolute top-4 left-4 text-gray-700">Email</div>
+            </div>
+            <div className="error">{signUpError.Email}</div>
+          </div>
+          <div className="flex flex-col w-full">
+            <div className="relative w-full">
+              <input 
+                type={`${passVis?'text':'password'}`} 
+                required 
+                className="p-4 w-full focus:outline-none focus:border-blue-500 bg-transparent cursor-pointer border-2 rounded-3xl font-semibold"
+                onChange={(e)=>setSignUpInfo({...signUpInfo,Password:e.target.value})}/>
+              <div className="labelline absolute top-4 left-4 text-gray-700">Set Password</div>
+              <div className="absolute right-4 top-6" onClick={()=>setPassVis(!passVis)}>
+                {passVis?<FaEyeSlash color="black" className="cursor-pointer"/>:<FaEye color="black" className="cursor-pointer"/>}
+              </div>
+            </div>
+            <div className="error">{signUpError.Password}</div>
+          </div>
+          <div className="flex flex-col w-full">
+            <div className="relative w-full">
+              <input 
+                type={`${confirmPassVis?'text':'password'}`} 
+                required 
+                className="p-4 w-full focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
+                onChange={(e)=>setSignUpInfo({...signUpInfo,confirmPass:e.target.value})}/>
+              <div className="labelline absolute top-4 left-4 text-gray-700">Confirm Password</div>
+              <div className="absolute right-4 top-6" onClick={()=>setConfirmPassVis(!confirmPassVis)}>
+                    {confirmPassVis?<FaEyeSlash color="black" className="cursor-pointer"/>:<FaEye color="black" className="cursor-pointer"/>}
+                  </div>
+            </div>
+            <div className="error">{signUpError.confirmPass}</div>
+          </div>
+          <button className="gradientbutton-bg px-8 py-2 rounded-3xl text-black font-bold" onClick={handleSignupSubmit}>Create Account</button>
+          <div className="">
+            <span className="font-semibold text-sm">Already a member?</span>
+            <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-black hover:text-white ml-2" onClick={()=>setFlip(false)}>Log In</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+  );
+};
+export default LoginSignupPage;
