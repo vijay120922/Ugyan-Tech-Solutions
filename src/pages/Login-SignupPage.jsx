@@ -126,20 +126,20 @@ const LoginSignupPage = () => {
 
   return (
     <>
-    <div className="w-full min-h-screen bg-gray-200 card-container">
-      <div className={`card-flip ${flip&&'signup'}`}>
-          <div className=" loginform flex flex-col gap-5 border-black items-center justify-center rounded-xl py-5  login-bg shadow-2xl shadow-black">
+    <div className="w-full  bg-gray-200 card-container ">
+      <div className={`card-flip w-full sm:w-[90%] md:w-[60%] transition-all duration-500 mb-20 mt-25 ${flip ? 'signup h-[750px] lg:w-[50%]' : 'h-[500px] lg:w-[40%]'}`}>
+          <div className=" loginform flex flex-col border gap-5 items-center justify-center rounded-xl  login-bg shadow-2xl shadow-black px-4 py-6 sm:px-8 md:px-12 lg:px-16">
             <header className="text-3xl font-bold mb-1.5 flex flex-col items-center gap-2">
               <div><FaUser size={50}/></div>
               Login Here
             </header>
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-[100%]">
               <div className="flex flex-row font-semibold border shadow-lg shadow-gray-700">
                 <FaUserTie size={45} className="p-3.5 border-r"/>
                 <input 
                   type="email" 
                   placeholder="Email" 
-                  className="p-2 w-full focus:outline-none bg-transparent" 
+                  className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base" 
                   onChange={(e)=>setLoginInfo({...loginInfo,Email:e.target.value})}/>
               </div>
               <div className="error">{loginError.Email}</div>
@@ -151,7 +151,7 @@ const LoginSignupPage = () => {
                   <input 
                     type={`${passVisible?"text":"password"}`} 
                     placeholder="Password" 
-                    className="p-2 w-full focus:outline-none bg-transparent "
+                    className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base"
                     onChange={(e)=>setLoginInfo({...loginInfo,Password:e.target.value})}
                   />
                   <div className="absolute right-0 text-xl h-full px-3 flex justify-center items-center" onClick={()=>setPassVisible(!passVisible)}>
@@ -173,29 +173,29 @@ const LoginSignupPage = () => {
               <button className="hover:bg-sky-800 border-2 text-black hover:text-white hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold" onClick={()=>setFlip(true)}>SIGN UP</button>
             </div>
          </div>
-        <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black">
+        <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black px-4 py-6 sm:px-8 md:px-12 lg:px-16">
           <div className="text-3xl font-bold flex flex-col items-center gap-2">
             <FaUserTag size={60} color="white"/>
             <header>Sign Up</header>
           </div>
-          <div className="flex gap-10 w-full">
-            <div className="flex flex-col w-full">
+          <div className="flex sm:gap-2 md:gap-3 lg:gap-4 w-full">
+            <div className="flex flex-col w-[50%]">
               <div className="flex relative">
                 <input 
                   type="text" 
                   required 
-                  className="p-4 focus:outline-none focus:border-blue-500 border-2 cursor-pointer rounded-3xl font-semibold" 
+                  className="p-4 focus:outline-none focus:border-blue-500 border-2 cursor-pointer rounded-3xl font-semibold w-full" 
                   onChange={(e)=>setSignUpInfo({...signUpInfo,firstName:e.target.value})}/>
                 <div className="labelline absolute top-4 left-4 text-gray-700">First Name</div>
               </div>
               <div className="error">{signUpError.firstName}</div>
             </div>  
-            <div className="flex flex-col w-full">
+            <div className="flex flex-col w-[50%]">
               <div className="flex relative">
                 <input 
                   type="text" 
                   required 
-                  className="p-4 focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
+                  className="p-4 focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl w-full font-semibold"
                   onChange={(e)=>setSignUpInfo({...signUpInfo,lastName:e.target.value})}/>
                 <div className="labelline absolute top-4 left-4 text-gray-700">Last Name</div>
               </div>

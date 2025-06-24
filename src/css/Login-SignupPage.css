@@ -8,9 +8,6 @@
 }
 
 .card-flip {
-  width: 40%;
-  height: 750px;
-  margin-top: 100px;
   position: relative;
   transition: transform 0.8s;
   transform-style: preserve-3d;
@@ -29,13 +26,11 @@
 }
 
 .loginform {
-  padding: 20px 80px;
   z-index: 2;
   transform: rotateY(0deg);
 }
 
 .signupform {
-  padding: 20px 20px;
   transform: rotateY(180deg);
   z-index: 1;
 }
