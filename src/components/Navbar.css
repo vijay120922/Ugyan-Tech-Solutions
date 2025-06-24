@@ -71,7 +71,7 @@
 }
 
 /* Responsive behavior */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1033px) {
   .nav-links {
     flex-direction: column;
     align-items: flex-start;
