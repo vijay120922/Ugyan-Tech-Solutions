@@ -28,9 +28,9 @@ const Footer = () => {
         {/* Contact Info */}
         <div className="footer-section">
           <h3>Contact Us</h3>
-          <p>Email: info@ugyan.com</p>
-          <p>Phone: +91 98765 43210</p>
-          <p>Location: Hyderabad, India</p>
+          <p>Email: support@ugyan.in</p>
+          <p>Phone: +91 79751 65470</p>
+          <p>Location: Banglore, India</p>
         </div>
 
         {/* Social Media */}

@@ -1,12 +1,13 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, User, LogOut } from "lucide-react";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, setUser }) => {
   const location = useLocation();
   const [isAtTop, setIsAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [showUserMenu, setShowUserMenu] = useState(false);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -19,6 +20,13 @@ const Navbar = ({ user }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+    setShowUserMenu(false);
+    nav("/");
+  };
 
   return (
     <nav
@@ -60,34 +68,48 @@ const Navbar = ({ user }) => {
           <NavLink to="/contact-us" className="nav-item" style={{ "--i": 5 }} onClick={()=>setMenuOpen(false)}>
             Contact Us
           </NavLink>
-          
-          <div className="lg:hidden">
-            <button
-              className="login-btn mt-4 md:mt-0 nav-item"
-              style={{ "--i": 6 }}
-              onClick={() => {
-                nav("/loginorSignup");
-                setMenuOpen(false);
-              }}
-            >
+
+          {user ? (
+            <div className="relative mt-4 lg:mt-0">
+              <button 
+                className="user-menu-btn flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-all duration-300"
+                onClick={() => setShowUserMenu(!showUserMenu)}
+              >
+                <User size={20} />
+                <span className="hidden sm:inline">Hi, {user.firstName}!</span>
+              </button>
+              
+              {showUserMenu && (
+                <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                  <button
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2 text-gray-700"
+                    onClick={() => {
+                      nav("/profile");
+                      setShowUserMenu(false);
+                      setMenuOpen(false);
+                    }}
+                  >
+                    <User size={16} />
+                    My Profile
+                  </button>
+                  <button
+                    className="w-full text-left px-4 py-2 hover:bg-gray-100 flex items-center gap-2 text-red-600"
+                    onClick={handleLogout}
+                  >
+                    <LogOut size={16} />
+                    Logout
+                  </button>
+                </div>
+              )}
+            </div>
+          ) : (
+            <button className="login-btn mt-4 md:mt-0" onClick={() => {nav('/loginorSignup');setMenuOpen(false)}} >
               Login / Sign Up
               <span className="login-arrow">
                 <ArrowRight size={16} />
               </span>
             </button>
-          </div>
-        </div>
-
-        <div className="hidden lg:flex">
-          <button
-            className="login-btn nav-item"
-            onClick={() => nav("/loginorSignup")}
-          >
-            Login / Sign Up
-            <span className="login-arrow">
-              <ArrowRight size={16} />
-            </span>
-          </button>
+          )}
         </div>
       </div>
     </nav>
