@@ -7,10 +7,11 @@ import { FaEye } from "react-icons/fa6";
 import { useState } from "react";
 import { FaUser } from "react-icons/fa6";
 import { FaUserTag } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import '../css/Login-SignupPage.css'
-const LoginSignupPage = () => {
+const LoginSignupPage = ({ setUser }) => {
   const navigate=useNavigate();
+  const location = useLocation();
   const [passVisible,setPassVisible]=useState(false);
   const [flip,setFlip]=useState(false);
   const [passVis,setPassVis]=useState(false);
@@ -48,7 +49,8 @@ const LoginSignupPage = () => {
     }
   }
   async function handleLoginSubmit() {
-    validateLogin();
+    const isValid = validateLogin();
+    if (!isValid) return;
 
     try {
       const res = await fetch('http://localhost:5000/api/auth/login', {
@@ -63,8 +65,16 @@ const LoginSignupPage = () => {
       const data = await res.json();
       if (res.ok) {
         localStorage.setItem('token', data.token); // Save token for future requests
+        setUser(data.user); // Update user state
         alert("Login Successful!");
-        navigate('/');
+        
+        // Check if we came from a course page and redirect accordingly
+        const from = location.state?.from;
+        if (from && from.pathname.includes('/viewmore/')) {
+          navigate(from.pathname, { state: from.state });
+        } else {
+          navigate('/');
+        }
       } else {
         alert(data.message || "Login failed");
       }

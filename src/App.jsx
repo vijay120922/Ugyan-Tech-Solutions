@@ -10,6 +10,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import ViewMore from "./components/ViewMore";
 import LoginSignupPage from "./pages/Login-SignupPage";
+import EnrollPage from "./pages/EnrollPage";
+import UserProfile from "./pages/UserProfile";
 import { useState,useEffect } from "react";
 
 function App() {
@@ -45,15 +47,17 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <Navbar user={user}/>
+      <Navbar user={user} setUser={setUser}/>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/courses" element={<Courses />} />
         <Route path="/about-us" element={<AboutUs />} />
         <Route path="/why-choose-us" element={<WhyChooseUs />} />
         <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/viewmore/:title" element={<ViewMore />} />
-        <Route path="/loginorSignup" element={<LoginSignupPage/>}/>
+        <Route path="/viewmore/:title" element={<ViewMore user={user} />} />
+        <Route path="/enroll/:title" element={<EnrollPage user={user} />} />
+        <Route path="/loginorSignup" element={<LoginSignupPage setUser={setUser}/>}/>
+        <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
       </Routes>
       <Footer />
     </>

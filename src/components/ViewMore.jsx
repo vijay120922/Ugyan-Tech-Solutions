@@ -2,12 +2,25 @@ import React, { useMemo } from "react";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import "./ViewMore.css";
 
-const ViewMore = () => {
+const ViewMore = ({ user }) => {
   const { title } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
   const course = location.state?.course;
   console.log(course);
+
+  const handleEnrollClick = () => {
+    if (!user) {
+      navigate("/loginorSignup", { 
+        replace: true, 
+        state: { from: location, course: course } 
+      });
+    } else {
+      navigate(`/enroll/${encodeURIComponent(course.title)}`, { 
+        state: { course } 
+      });
+    }
+  };
 
   if (!course) {
     return (
@@ -26,7 +39,7 @@ const ViewMore = () => {
     { stars: "⭐⭐⭐⭐", text: "Well-paced and beginner friendly!", name: "— Sana" },
     { stars: "⭐⭐⭐⭐⭐", text: "The assignments really helped me grasp the topics.", name: "— Farhaan" },
     { stars: "⭐⭐⭐⭐", text: "Good course, but I wish there were subtitles.", name: "— Priya" },
-    { stars: "⭐⭐⭐⭐⭐", text: "Best online course I’ve ever taken.", name: "— Arjun" },
+    { stars: "⭐⭐⭐⭐⭐", text: "Best online course I've ever taken.", name: "— Arjun" },
     { stars: "⭐⭐⭐⭐", text: "Loved the real-world project section.", name: "— Kavya" },
     { stars: "⭐⭐⭐⭐⭐", text: "It helped me get my first internship.", name: "— Nikhil" },
     { stars: "⭐⭐⭐⭐", text: "Very detailed and beginner friendly.", name: "— Tanya" },
@@ -59,7 +72,9 @@ const ViewMore = () => {
 
         {/* Enroll + Students Count */}
         <div className="action-row">
-          <button className="enroll-btn">Enroll Now</button>
+          <button className="enroll-btn" onClick={handleEnrollClick}>
+            {user ? "Enroll Now" : "Login to Enroll"}
+          </button>
           <p className="student-count">📚 3,200 students enrolled</p>
         </div>
 
