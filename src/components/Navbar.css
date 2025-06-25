@@ -64,15 +64,13 @@
 }
 
 .nav-item {
-  color: rgb(0, 0, 0);
   opacity: 0;
   transform: translateY(-10px);
   animation: slideDown 0.5s ease-in forwards;
   animation-delay: calc(var(--i) * 0.2s);
-  transition: all 0.2s ease-in;
   font-weight: 500;
   padding: 6px 12px;
-  border-radius: 10px;
+  transition: all 0.2s ease-in;
 }
 @keyframes slideDown {
   to {
@@ -80,15 +78,7 @@
     transform: translate(0px);
   }
 }
-.nav-item:hover {
-  color: #6b21a8;
-  background-color: rgba(255, 255, 255, 0.185);
-  backdrop-filter: blur(5px);
-}
-.nav-item:focus {
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
+
 
 /* Responsive behavior */
 @media screen and (max-width: 1033px) {
