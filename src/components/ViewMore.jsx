@@ -41,7 +41,6 @@ const ViewMore = () => {
     { stars: "⭐⭐⭐⭐⭐", text: "Simple, effective, and practical.", name: "— Varun" },
   ];
 
-  // Select 3 random reviews
   const randomReviews = useMemo(() => {
     const shuffled = [...allReviews].sort(() => 0.5 - Math.random());
     return shuffled.slice(0, 3);
@@ -74,7 +73,7 @@ const ViewMore = () => {
               ))}
             </ul>
             {course.duration && (
-              <p className="duration">{course.duration}</p>
+              <p className="duration">Duration:{course.duration}</p>
             )}
           </div>
 
@@ -85,6 +84,17 @@ const ViewMore = () => {
                 <li key={idx}>✔️ {item}</li>
               ))}
             </ul>
+           {course.careers && (
+              <div className="career-box">
+                <h3>Career Opportunities After Completing This Course</h3>
+                <ul>
+                  {course.careers.roles.map((role, idx) => (
+                    <li key={idx}> ✔️{role}</li>
+                  ))}
+                  <li>✔️ Expected Package: {course.careers.package}</li>
+                </ul>
+              </div>
+            )}
           </div>
         </div>
 
