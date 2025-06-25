@@ -43,6 +43,26 @@
   border: 2px solid #6b21a8c7;
 }
 
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 200px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.user-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
 .nav-item {
   color: rgb(0, 0, 0);
   opacity: 0;
@@ -79,5 +99,10 @@
   .nav-item {
     width: 100%;
     padding: 10px;
+  }
+  
+  .user-menu-btn {
+    width: 100%;
+    justify-content: center;
   }
 }
