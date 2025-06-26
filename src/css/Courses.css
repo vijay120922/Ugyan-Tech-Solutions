@@ -1,6 +1,6 @@
 .courses-page {
     padding: 60px 40px;
-    background-color: #f4edf9;
+    background: linear-gradient(to right, #f9f6fc, #ece1f7);
   }
   
   .courses-title {
@@ -15,7 +15,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: white;
+    background: linear-gradient(to right, #f9f6fc, #ece1f7);
     margin-bottom: 60px;
     border-radius: 16px;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);

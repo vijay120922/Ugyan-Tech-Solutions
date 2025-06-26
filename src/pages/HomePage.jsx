@@ -17,11 +17,11 @@ const HomePage = () => {
       >
         <div className="homepage">
           <section className="hero-section">
-            <div className="badge-container border">
+            {/* <div className="badge-container border">
             <div className="top-badge">🎓 Your #1 Platform for Skill Learning</div></div>
             <h1 className="main-heading">
               Showcase Your Mastery.<br />Get Connected
-            </h1>
+            </h1> */}
             <div className="search-bar">
               <input type="text" placeholder="Search Courses" className="search-input w-full" />
               <button className="search-button">Search</button>
@@ -33,7 +33,7 @@ const HomePage = () => {
         <Carousel />
       </section>
       
-      <section>
+      <section className="fade-bottom">
         <CoursesSection />
       </section>
       
@@ -43,7 +43,7 @@ const HomePage = () => {
       <section className="why-choose-section">
         <AboutUsSection />
       </section>
-      <section>
+      <section className="contact-us-section">
         <ContactUsSection />
       </section>
     </>
