@@ -6,9 +6,10 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
+        
         {/* Company Info */}
         <div className="footer-section company-info">
-          <h2 className="footer-logo">Ugyan Tech Solutions</h2>
+          <h2 className="footer-logo">Ugyan Edutech</h2>
           <p>Empowering Learning, Empowering Lives</p>
         </div>
 
@@ -21,7 +22,6 @@ const Footer = () => {
             <li><Link to="/why-choose-us">Why Choose Us</Link></li>
             <li><Link to="/about-us">About Us</Link></li>
             <li><Link to="/contact-us">Contact Us</Link></li>
-            
           </ul>
         </div>
 
@@ -30,7 +30,15 @@ const Footer = () => {
           <h3>Contact Us</h3>
           <p>Email: support@ugyan.in</p>
           <p>Phone: +91 79751 65470</p>
-          <p>Location: Banglore, India</p>
+          <p>Location:</p>
+          <div className="map-wrapper">
+            <iframe 
+              title="Google Map" 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62218.11065641293!2d77.66988807060254!3d12.931362919166437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x659d12bf5498f4e7%3A0x8ef08c377c391150!2sUGYAN%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1750866136697!5m2!1sen!2sin" 
+              allowFullScreen 
+              loading="lazy">
+            </iframe>
+          </div>
         </div>
 
         {/* Social Media */}
