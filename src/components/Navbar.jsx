@@ -27,12 +27,17 @@ const Navbar = ({ user }) => {
       } w-full fixed top-0 z-50 transition-all duration-150 rounded-b-3xl p-5 lg:px-8 lg:p-3`}
     >
       <div className="flex justify-between items-center">
-        <img
+        {/* <img
           className="object-contain w-[130px] cursor-pointer"
           src="/logo1.png"
           alt="Logo"
           onClick={() => nav("/")}
-        />
+        /> */}
+        <h4
+          className="object-contain w-[130px] cursor-pointer"
+          style={{ fontFamily: "Poppins", fontWeight: "600" }}
+          onClick={() => nav("/")}>Ugyan Edu tech</h4>
+        
 
         <div className="lg:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
