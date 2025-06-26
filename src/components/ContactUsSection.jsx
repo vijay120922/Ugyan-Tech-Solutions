@@ -11,15 +11,15 @@ const ContactUsSection = () => {
         </p>
 
         <div className="contact-us-form">
-          <h2 className="contact-us-form-heading">Send your queries here</h2>
+          <h2 className="contact-us-form-heading">Let us call you back</h2>
           <form>
             <input type="text" placeholder="Your Name" disabled />
-            <input type="email" placeholder="Your Email" disabled />
+            {/* <input type="email" placeholder="Your Email" disabled /> */}
             <input type="number" placeholder="Your contact number" disabled />
-            <input type="text" placeholder="Subject" disabled />
-            <textarea placeholder="Your Message" rows="5" disabled></textarea>
+            {/* <input type="text" placeholder="Subject" disabled />
+            <textarea placeholder="Your Message" rows="5" disabled></textarea> */}
             <button type="submit" disabled className="send-button" title="Static page only">
-              Send Message
+              Request a call back
             </button>
           </form>
         </div>
