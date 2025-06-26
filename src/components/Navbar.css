@@ -1,0 +1,98 @@
+.gradient-bg {
+  background: linear-gradient(to right, #8570ee, white);
+  background-size: 200%;
+  animation: movingBg 3s linear infinite alternate;
+}
+@keyframes movingBg {
+  to {
+    background-position: 100% 20%;
+  }
+}
+
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 2px solid white;
+  background: transparent;
+  border-radius: 300px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.login-btn:hover {
+  background-color: white;
+  color: #6b21a8;
+}
+.login-arrow {
+  display: flex;
+  background-color: white;
+  color: #6b21a8;
+  border-radius: 50%;
+  padding: 4px;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+.login-btn:hover .login-arrow {
+  transform: translateX(4px);
+}
+.login-btn:hover {
+  border: 2px solid #6b21a8c7;
+}
+
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 200px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.user-menu-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-1px);
+}
+
+.nav-item {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: slideDown 0.5s ease-in forwards;
+  animation-delay: calc(var(--i) * 0.2s);
+  font-weight: 500;
+  padding: 6px 12px;
+  transition: all 0.2s ease-in;
+}
+@keyframes slideDown {
+  to {
+    opacity: 1;
+    transform: translate(0px);
+  }
+}
+
+
+/* Responsive behavior */
+@media screen and (max-width: 1033px) {
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-item {
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .user-menu-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}

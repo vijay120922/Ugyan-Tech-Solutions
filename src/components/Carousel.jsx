@@ -1,0 +1,74 @@
+import React from "react";
+import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
+import "./Carousel.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const slides = [
+  {
+    image: "/carousel1.jpg",
+    buttonText: "Explore Courses",
+    link: "/courses",
+  },
+  {
+    image: "/carousel2.jpg",
+    buttonText: "Know Us More",
+    link: "/about-us",
+  },
+  {
+    image: "/carousel3.jpg",
+    buttonText: "Why Choose Us?",
+    link: "/why-choose-us",
+  },
+];
+
+const NextArrow = ({ onClick }) => (
+  <div className="custom-arrow next" onClick={onClick}></div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div className="custom-arrow prev" onClick={onClick}></div>
+);
+
+const Carousel = () => {
+  const navigate = useNavigate();
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    pauseOnHover: false,
+  };
+
+  return (
+    <div className="carousel-container">
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <div key={index} className="carousel-slide">
+            <img
+              src={slide.image}
+              alt={`Slide ${index + 1}`}
+              className="carousel-img"
+            />
+            <button
+              className="carousel-btn"
+              onClick={() => navigate(slide.link)}
+            >
+              {slide.buttonText}
+            </button>
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+export default Carousel;
