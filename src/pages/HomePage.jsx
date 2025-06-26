@@ -7,6 +7,7 @@ import CoursesSection from "../components/CoursesSection";
 import ContactUsSection from "../components/ContactUsSection";
 import TrustedBy from '../components/TrustedBy';
 import Footer from '../components/Footer';
+import HeroSection from '../components/HeroSection';
 import '../css/HomePage.css'; 
 
 const HomePage = () => {
