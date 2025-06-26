@@ -3,7 +3,7 @@ import './AboutUsSection.css';
 const AboutUsSection = () => {
   return (
     <section className="why-choose-us mt-5">
-      <h2>Why Choose Us?</h2>
+      <h2>Who are We ?</h2>
       <p className="subheading">
         Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations
       </p>
