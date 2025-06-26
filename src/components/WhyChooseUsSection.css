@@ -1,0 +1,113 @@
+.why-us-section {
+  background: linear-gradient(to right, #f9f6fc, #ece1f7);
+  padding: 60px 30px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.why-title {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  color: #2d0b4e;
+}
+
+.features-carousel {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.feature-card-wrapper {
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.feature-card {
+  background-color: white;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+.feature-icon {
+  font-size: 36px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.2);
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #53346D;
+}
+
+.feature-description {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.4;
+}
+
+.slick-arrow {
+  display: none !important;
+}
+
+.slick-dots {
+  display: none !important;
+}
+
+@media (max-width: 992px) {
+  .why-title {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .why-title {
+    font-size: 26px;
+  }
+
+  .feature-card {
+    min-height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-title {
+    font-size: 22px;
+  }
+
+  .feature-card {
+    min-height: 180px;
+    padding: 16px;
+  }
+
+  .feature-title {
+    font-size: 18px;
+  }
+
+  .feature-description {
+    font-size: 13px;
+  }
+
+  .feature-icon {
+    font-size: 30px;
+  }
+}
