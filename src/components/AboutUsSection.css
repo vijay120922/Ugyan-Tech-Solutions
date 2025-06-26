@@ -5,8 +5,11 @@
 }
 
 .why-choose-us h2 {
-  font-size: 2.5em;
+   font-size: 36px;
+  font-weight: 600;
   margin-bottom: 10px;
+  color: #53346D;
+   font-family: 'Poppins', sans-serif;
 }
 
 .subheading {

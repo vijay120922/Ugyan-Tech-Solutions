@@ -3,7 +3,7 @@ import './AboutUsSection.css';
 const AboutUsSection = () => {
   return (
     <section className="why-choose-us mt-5">
-      <h2>Why Choose Us?</h2>
+      <h2>Who are we?</h2>
       <p className="subheading">
         Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations
       </p>
@@ -11,7 +11,7 @@ const AboutUsSection = () => {
       <div className="choose-grid">
         <div className="row">
           <div className="image-box green-bg">
-            <img src="/man1.png" alt="Team Member 1" />
+            <img src="/dp.jpg" alt="Team Member 1" />
           </div>
           <div className="text-box shadow-box">
             <p>
@@ -33,7 +33,7 @@ const AboutUsSection = () => {
             {/* <img src="/arrow.jpng" alt="arrow" className="heart-arrow" /> */}
           </div>
           <div className="image-box peach-bg">
-            <img src="/man2.png" alt="Team Member 2" />
+            <img src="/dp.jpg" alt="Team Member 2" />
           </div>
         </div>
       </div>
