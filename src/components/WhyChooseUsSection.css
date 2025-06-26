@@ -12,28 +12,35 @@
   color: #2d0b4e;
 }
 
-/* Responsive Grid Layout */
-.features-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
+.features-carousel {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.feature-card-wrapper {
+  padding: 0 15px;
+  box-sizing: border-box;
 }
 
 .feature-card {
   background-color: white;
-  width: 260px;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   padding: 20px;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: default;
 }
 
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+  transform: scale(1.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
+
 
 .feature-icon {
   font-size: 36px;
@@ -58,38 +65,37 @@
   line-height: 1.4;
 }
 
-/* === Responsive Design === */
+.slick-arrow {
+  display: none !important;
+}
 
-/* Tablets */
+.slick-dots {
+  display: none !important;
+}
+
 @media (max-width: 992px) {
   .why-title {
     font-size: 30px;
   }
-
-  .feature-card {
-    width: 45%;
-  }
 }
 
-/* Mobile Large */
 @media (max-width: 768px) {
   .why-title {
     font-size: 26px;
   }
 
   .feature-card {
-    width: 80%;
+    min-height: 200px;
   }
 }
 
-/* Mobile Small */
 @media (max-width: 480px) {
   .why-title {
     font-size: 22px;
   }
 
   .feature-card {
-    width: 100%;
+    min-height: 180px;
     padding: 16px;
   }
 
