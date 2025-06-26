@@ -23,7 +23,10 @@
   backface-visibility: hidden;
   top: 0;
   left: 0;
+<<<<<<< HEAD
   box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+=======
+>>>>>>> 065fd255eb16f8a464b237e478b46981f1945fea
 }
 
 .loginform {
@@ -35,11 +38,14 @@
   transform: rotateY(180deg);
   z-index: 1;
 }
+<<<<<<< HEAD
 
 .signupform input {
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
 }
 
+=======
+>>>>>>> 065fd255eb16f8a464b237e478b46981f1945fea
 .error{
     font-size: small;
     margin-top: 10px;
