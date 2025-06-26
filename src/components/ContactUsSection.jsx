@@ -1,33 +1,76 @@
 import React from "react";
-import "./ContactUsSection.css";
+import Slider from "react-slick";
+import { useNavigate } from "react-router-dom";
+import "./Carousel.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const ContactUsSection = () => {
+const slides = [
+  {
+    image: "/carousel1.jpg",
+    buttonText: "Explore Courses",
+    link: "/courses",
+  },
+  {
+    image: "/carousel2.jpg",
+    buttonText: "Know Us More",
+    link: "/about-us",
+  },
+  {
+    image: "/carousel3.jpg",
+    buttonText: "Why Choose Us?",
+    link: "/why-choose-us",
+  },
+];
+
+const NextArrow = ({ onClick }) => (
+  <div className="custom-arrow next" onClick={onClick}></div>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <div className="custom-arrow prev" onClick={onClick}></div>
+);
+
+const Carousel = () => {
+  const navigate = useNavigate();
+
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 800,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
+    pauseOnHover: false,
+  };
+
   return (
-    <section className="contact-us-wrapper">
-      <div className="contact-us-inner">
-        <h2 className="contact-heading">Get in touch</h2>
-        <p className="contact-subheading">
-          We'd love to hear from you. Drop us a message!
-        </p>
-
-        <div className="contact-us-form">
-          <h2 className="contact-us-form-heading">Let us call you back</h2>
-          <form className="contact-form-elements">
-            <input type="text" placeholder="Your Name" disabled />
-            <input type="number" placeholder="Your contact number" disabled />
-            <button
-              type="submit"
-              disabled
-              className="send-button"
-              title="Static page only"
-            >
-              Request a call back
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
+    <div className="carousel-container">
+      <Slider {...settings}>
+        {slides.map((slide, index) => (
+          <div key={index} className="carousel-slide">
+            <div className="carousel-img-wrapper">
+              <img
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+                className="carousel-img"
+              />
+              <button
+                className="carousel-btn"
+                onClick={() => navigate(slide.link)}
+              >
+                {slide.buttonText}
+              </button>
+            </div>
+          </div>
+        ))}
+      </Slider>
+    </div>
   );
 };
 
-export default ContactUsSection;
+export default Carousel;

@@ -53,17 +53,19 @@ const Carousel = () => {
       <Slider {...settings}>
         {slides.map((slide, index) => (
           <div key={index} className="carousel-slide">
-            <img
-              src={slide.image}
-              alt={`Slide ${index + 1}`}
-              className="carousel-img"
-            />
-            <button
-              className="carousel-btn"
-              onClick={() => navigate(slide.link)}
-            >
-              {slide.buttonText}
-            </button>
+            <div className="carousel-img-wrapper">
+              <img
+                src={slide.image}
+                alt={`Slide ${index + 1}`}
+                className="carousel-img"
+              />
+              <button
+                className="carousel-btn"
+                onClick={() => navigate(slide.link)}
+              >
+                {slide.buttonText}
+              </button>
+            </div>
           </div>
         ))}
       </Slider>
