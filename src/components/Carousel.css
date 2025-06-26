@@ -1,9 +1,14 @@
 .carousel-container {
-  width: 90vw;
-  max-width: 1200px;
+  /* width: 100%;
+  max-width: 1200px; */
   margin: 0 auto;
   position: relative;
-  padding: 0 30px;
+  /* padding: 0 30px; */
+
+  background: linear-gradient(to right, #f9f6fc, #ece1f7);
+  padding: 60px 30px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
  
 }
 

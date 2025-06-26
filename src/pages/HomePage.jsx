@@ -12,8 +12,8 @@ const HomePage = () => {
   return (
     <>
       <div
-        className="bg-cover bg-center"
-        style={{ backgroundImage: "url('/homebg.jpeg')" }}
+        className="homepage-main bg-cover bg-center"
+        // style={{ backgroundImage: "url('/homebg.jpeg')" }}
       >
         <div className="homepage">
           <section className="hero-section">
