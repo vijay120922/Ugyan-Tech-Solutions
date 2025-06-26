@@ -5,30 +5,33 @@ import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import AboutUsSection from '../components/AboutUsSection';
 import CoursesSection from "../components/CoursesSection";
 import ContactUsSection from "../components/ContactUsSection";
+import HeroSection from '../components/HeroSection';
 import Footer from '../components/Footer';
 import '../css/HomePage.css'; 
 
 const HomePage = () => {
   return (
     <>
-      <div
+      {/* <div
         className="homepage-main bg-cover bg-center"
-        // style={{ backgroundImage: "url('/homebg.jpeg')" }}
       >
         <div className="homepage">
           <section className="hero-section">
-            {/* <div className="badge-container border">
+             <div className="badge-container border">
             <div className="top-badge">🎓 Your #1 Platform for Skill Learning</div></div>
             <h1 className="main-heading">
               Showcase Your Mastery.<br />Get Connected
-            </h1> */}
+            </h1> 
             <div className="search-bar">
               <input type="text" placeholder="Search Courses" className="search-input w-full" />
               <button className="search-button">Search</button>
             </div>
           </section>
         </div>
-      </div>
+      </div> */}
+      <section className="Herosection">
+        <HeroSection />
+      </section>
       <section className="carousel-section">
         <Carousel />
       </section>
