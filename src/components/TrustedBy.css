@@ -1,0 +1,147 @@
+.trusted-by-section {
+  width: 100%;
+  padding: 50px;
+  background: linear-gradient(to right, #f9f6fc, #ece1f7);
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.heading-block{
+  font-size: 36px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #53346D;
+}
+.top-row,
+.bottom-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.carousel {
+  overflow: hidden;
+  width: 70%;
+  height: 80px;
+}
+
+.carousel-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: scroll 10s linear infinite;
+  gap: 40px; /* spacing between logos */
+}
+
+.carousel.scroll-left .carousel-track {
+  animation: scroll-reverse 10s linear infinite;
+}
+
+.carousel-logo {
+  max-height: 80px;    /* equal height */
+  width: auto;         /* allow variable width */
+  object-fit: contain; /* prevent cropping */
+  display: block;
+}
+
+.heading-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 30%;
+}
+
+.heading-block h2 {
+  font-size: 24px;
+  margin: 0;
+}
+
+.arrow-icon {
+  font-size: 20px;
+  color: #333;
+}
+
+/* Animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .trusted-by-section {
+    padding: 40px 20px;
+    gap: 40px;
+  }
+
+  .carousel {
+    height: 60px;
+  }
+
+  .carousel-logo {
+    max-height: 60px;
+  }
+
+  .heading-block h2 {
+    font-size: 20px;
+  }
+
+  .arrow-icon {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-row,
+  .bottom-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .carousel,
+  .heading-block {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .carousel-logo {
+    max-height: 50px;
+  }
+
+  .heading-block h2 {
+    font-size: 18px;
+  }
+
+  .arrow-icon {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-logo {
+    max-height: 40px;
+  }
+
+  .heading-block h2 {
+    font-size: 16px;
+  }
+
+  .arrow-icon {
+    font-size: 14px;
+  }
+}
