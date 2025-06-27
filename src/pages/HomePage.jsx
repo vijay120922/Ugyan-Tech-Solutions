@@ -18,19 +18,16 @@ const HomePage = () => {
      </section>
       <section className="carousel-section">
         <Carousel />
-      </section>
-      <section className="why-choose-section">
-        <AboutUsSection />
-      </section>
-      
+      </section>    
       <section className="fade-bottom">
         <CoursesSection />
       </section>
-      
       <section>
         <WhyChooseUsSection />
       </section>
-      
+             <section className="why-choose-section">
+        <AboutUsSection />
+      </section>     
             <section>
         <TrustedBy/>
       </section>

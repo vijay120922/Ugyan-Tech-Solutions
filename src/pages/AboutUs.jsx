@@ -19,7 +19,11 @@ const AboutUs = () => {
           {loading ? <Skeleton width={320} /> : "Online Education Tailored to You"}
         </h1>
         <p className="description">
-          {loading ? <Skeleton count={2} width={700} /> : "Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations"}
+          {loading ? (
+            <Skeleton count={2} width={700} />
+          ) : (
+            "Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations"
+          )}
         </p>
       </div>
 
@@ -33,9 +37,13 @@ const AboutUs = () => {
               </h2>
             </div>
             <p className="card-description">
-              {loading ? <Skeleton count={4} /> : idx === 0
-                ? "At UGYAN Learning, our vision is to create a world where learning is celebrated..."
-                : "Our mission is to cultivate a dynamic learning ecosystem..."}
+              {loading ? (
+                <Skeleton count={4} />
+              ) : idx === 0 ? (
+                "At UGYAN Learning, our vision is to become a global leader in digital education by making quality learning accessible, inclusive, and personalized for everyone. We envision a future where technology bridges the gap between curiosity and opportunity, empowering individuals to grow, innovate, and lead in a rapidly evolving world."
+              ) : (
+                "Our mission is to provide learner-centric, technology-driven education that empowers individuals with the skills and knowledge needed to thrive in the 21st century. Through expert mentorship, interactive content, and real-world applications, we aim to cultivate a community of lifelong learners who are confident, capable, and future-ready."
+              )}
             </p>
           </div>
         ))}
@@ -46,12 +54,18 @@ const AboutUs = () => {
         <div className="info-box card-animate">
           <h2>{loading ? <Skeleton width={200} /> : "Welcome to Ugyan"}</h2>
           <p>
-            {loading ? <Skeleton count={3} /> :
-              "UGyan is built on the foundation that knowledge is the key to boundless possibilities..."}
+            {loading ? (
+              <Skeleton count={3} />
+            ) : (
+              "UGyan is built on the foundation that knowledge is the key to boundless possibilities. We believe learning should not be confined to classrooms or rigid schedules. Instead, it should be a dynamic, empowering experience accessible to all."
+            )}
           </p>
           <p>
-            {loading ? <Skeleton count={2} /> :
-              "UGyan's motto, 'Unlock Your Knowledge,' reflects this belief..."}
+            {loading ? (
+              <Skeleton count={2} />
+            ) : (
+              "UGyan's motto, 'Unlock Your Knowledge,' reflects this belief. Our platform brings together expert mentors, practical resources, and personalized pathways to help every learner succeed."
+            )}
           </p>
           <div className="features">
             {loading ? (
@@ -90,30 +104,56 @@ const AboutUs = () => {
 
       {/* Team Section */}
       <div className="choose-grid">
-        {[1, 2].map((item, index) => (
+        {[1, 2].map((_, index) => (
           <div className="row" key={index}>
-            {(index % 2 === 0 || loading) && (
-              <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
-                {loading ? <Skeleton width="100%" height="100%" /> : <img src={`/man${item}.png`} alt={`Team Member ${item}`} />}
-              </div>
-            )}
-            <div className="text-box shadow-box">
-              {loading ? (
-                <Skeleton count={3} />
-              ) : (
-                <p>
-                  <strong>{index === 0 ? "Dr. Emily Chen" : "Dr. Michael Lee"}</strong>
-                  <br />
-                  {index === 0
-                    ? "Expert educator with 15+ years in e-learning..."
-                    : "Tech visionary and mentor..."}
-                </p>
-              )}
-            </div>
-            {(index % 2 !== 0 && !loading) && (
-              <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
-                <img src={`/man${item}.png`} alt={`Team Member ${item}`} />
-              </div>
+            {index % 2 === 0 ? (
+              <>
+                {/* Image Left */}
+                <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
+                  {loading ? (
+                    <Skeleton width="100%" height="100%" />
+                  ) : (
+                    <img src="/dp.jpg" alt="Team Member" />
+                  )}
+                </div>
+
+                {/* Text Right */}
+                <div className="text-box shadow-box">
+                  {loading ? (
+                    <Skeleton count={3} />
+                  ) : (
+                 <p>
+  <strong>Dr. Michael Lee</strong>
+  <br />
+  A tech mentor and AI expert, Dr. Lee focuses on building intelligent learning platforms and guiding institutions through digital education transformation.
+</p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Text Left */}
+                <div className="text-box shadow-box">
+                  {loading ? (
+                    <Skeleton count={3} />
+                  ) : (
+                    <p>
+  <strong>Dr. Michael Lee</strong>
+  <br />
+  A tech mentor and AI expert, Dr. Lee focuses on building intelligent learning platforms and guiding institutions through digital education transformation.
+</p>
+                  )}
+                </div>
+
+                {/* Image Right */}
+                <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
+                  {loading ? (
+                    <Skeleton width="100%" height="100%" />
+                  ) : (
+                    <img src="/dp.jpg" alt="Team Member" />
+                  )}
+                </div>
+              </>
             )}
           </div>
         ))}
