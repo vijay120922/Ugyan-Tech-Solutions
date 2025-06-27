@@ -35,7 +35,7 @@ const HeroSection = () => {
             <Skeleton width={480} height={45} style={{ margin: "16px auto" }} />
           ) : (
             <>
-              Transforming <span className="highlight">Education</span> for Every Learner
+              Career-Ready   <span className="highlight">Learning,</span> <br /> Simplified Online
             </>
           )}
         </h1>
