@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Courses from "./pages/Courses";
 import AboutUs from "./pages/AboutUs";
@@ -13,53 +13,46 @@ import LoginSignupPage from "./pages/Login-SignupPage";
 import EnrollPage from "./pages/EnrollPage";
 import UserProfile from "./pages/UserProfile";
 import { useState,useEffect } from "react";
-
+import AdminLandingPage from "./adminbuild/landingpage"
 function App() {
   const [user, setUser] = useState(null);
+  const location=useLocation();
+  const navigate = useNavigat();
+  const isAdmin = user?.role === "Admin";
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const token = localStorage.getItem("token");
-      console.log(token);
-      if (!token) return;
-
-      try {
-        const res = await fetch("http://localhost:5000/api/users/me", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        const data = await res.json();
-        if (res.ok) {
-          setUser(data);
-        } else {
-          console.error("Failed to fetch user:", data.message);
-        }
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    };
-
-    fetchUser();
-  }, []);
+    if (isAdmin && location.pathname !== "/admin") {
+      navigate("/admin");
+    }
+  }, [isAdmin, location.pathname, navigate]);
 
   return (
     <>
-      <ScrollToTop />
-      <Navbar user={user} setUser={setUser}/>
+    <ScrollToTop />
+      {!isAdmin && <Navbar user={user} setUser={setUser} />}
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/about-us" element={<AboutUs />} />
-        <Route path="/why-choose-us" element={<WhyChooseUs />} />
-        <Route path="/contact-us" element={<ContactUs />} />
-        <Route path="/viewmore/:title" element={<ViewMore user={user} />} />
-        <Route path="/enroll/:title" element={<EnrollPage user={user} />} />
-        <Route path="/loginorSignup" element={<LoginSignupPage setUser={setUser}/>}/>
-        <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
+        {!isAdmin ? (
+          <>
+            {/* Student/User Routes */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/courses" element={<Courses />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/why-choose-us" element={<WhyChooseUs />} />
+            <Route path="/contact-us" element={<ContactUs />} />
+            <Route path="/viewmore/:title" element={<ViewMore user={user} />} />
+            <Route path="/enroll/:title" element={<EnrollPage user={user} />} />
+            <Route path="/loginorSignup" element={<LoginSignupPage setUser={setUser} />} />
+            <Route path="/profile" element={<UserProfile user={user} setUser={setUser} />} />
+          </>
+        ) : (
+          <>
+            <Route path="/admin" element={<AdminLandingPage />} />
+          </>
+        )}
       </Routes>
-      <Footer />
+
+      {!isAdmin && <Footer />}
     </>
   );
 }

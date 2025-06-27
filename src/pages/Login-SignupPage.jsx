@@ -64,8 +64,9 @@ const LoginSignupPage = ({ setUser }) => {
 
       const data = await res.json();
       if (res.ok) {
-        localStorage.setItem('token', data.token); // Save token for future requests
-        setUser(data.user); // Update user state
+        localStorage.setItem('token', data.token); 
+        setUser(data.user); 
+        console.log(data.user);
         alert("Login Successful!");
         
         // Check if we came from a course page and redirect accordingly
