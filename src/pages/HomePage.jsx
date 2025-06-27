@@ -5,6 +5,7 @@ import WhyChooseUsSection from "../components/WhyChooseUsSection";
 import AboutUsSection from '../components/AboutUsSection';
 import CoursesSection from "../components/CoursesSection";
 import ContactUsSection from "../components/ContactUsSection";
+import TrustedBy from "../components/TrustedBy";
 import Footer from '../components/Footer';
 import '../css/HomePage.css'; 
 
@@ -42,6 +43,9 @@ const HomePage = () => {
       </section>
       <section className="why-choose-section">
         <AboutUsSection />
+      </section>
+            <section>
+        <TrustedBy/>
       </section>
       <section className="contact-us-section">
         <ContactUsSection />
