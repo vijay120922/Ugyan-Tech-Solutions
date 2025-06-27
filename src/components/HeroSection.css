@@ -10,53 +10,27 @@
     padding-top : 90px;
     
       background: linear-gradient(to right, #f9f6fc, #ece1f7);
-      padding: 60px 30px;
+      padding: 60px 30px 15px;
       text-align: center;
   
     
   }
-  
-  .hero-bg-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -2;
-    opacity: 0.25;
-    animation: fadeIn 3s ease forwards;
-  }
-  
-  .floating-badge {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    background: #6a1b9a;
-    color: white;
-    padding: 10px 24px;
-    border-radius: 30px;
-    font-weight: bold;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-    animation: float 3s ease-in-out infinite;
-    letter-spacing: 0.5px;
-    font-size: 14px;
-  }
+ 
   
   .hero-content {
     max-width: 850px;
     text-align: center;
-    padding: 20px;
+    padding: 10px;
     animation: slideIn 1.2s ease-out;
   }
   
   .hero-content h1 {
-    font-size: 3.5rem;
+    font-size: 3.2rem;
     margin-bottom: 24px;
-    color: #2d0349;
+    color: #6a1b9a;
     line-height: 1.4;
     animation: pulse 2.5s ease-in-out infinite;
-    font-weight: 700;
+    font-weight: 600;
   }
   
   .hero-content .highlight {
@@ -65,9 +39,9 @@
   }
   
   .hero-content p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: #444;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     animation: fadeText 1.8s ease-out;
   }
   
@@ -79,7 +53,7 @@
   }
   
   .btn {
-    padding: 14px 36px;
+    padding: 14px 36px 10px;
     font-size: 16px;
     font-weight: bold;
     border: none;
@@ -97,7 +71,7 @@
   }
   
   .btn.enroll {
-    background: linear-gradient(to right, #d9a437 0%, #b88b2b 100%);
+    background-image: linear-gradient(to right, #6a1b9a 0%, #4a148c 51%, #6a1b9a 100%);
     color: white;
   }
   
