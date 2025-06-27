@@ -9,7 +9,6 @@ import TrustedBy from "../components/TrustedBy";
 import Footer from '../components/Footer';
 import '../css/HomePage.css'; 
 import HeroSection from '../components/HeroSection';
-import UgyanText from "../components/UgyanText";
 
 const HomePage = () => {
   return (

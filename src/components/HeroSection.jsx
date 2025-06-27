@@ -44,7 +44,9 @@ const HeroSection = () => {
           {loading ? (
             <Skeleton count={2} width={700} style={{ margin: "0 auto" }} />
           ) : (
-            "Discover personalized online learning crafted by top educators. Empower your career with skill-based, practical courses and internship-backed experiences."
+            <>
+              Empower your career with practical, personalized learning and internship-backed courses from top educators.
+            </>
           )}
         </p>
 
