@@ -1,23 +1,34 @@
 import "./HeroSection.css";
 
+import UgyanText from "./UgyanText";
+
+
+
 const HeroSection = () => {
   return (
     <section className="hero-wrapper">
-      <video className="hero-bg-video" autoPlay muted loop>
-        <source src="/edu-hero-bg.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
+      
 
-      {/* <div className="floating-badge">🎓 EDU TECH 5.0</div> */}
 
+      {/* Hero Content */}
       <div className="hero-content">
+
+      <UgyanText
+      sentence="Ugyan EduTech"
+      manualMode={false}
+      blurAmount={5}
+      borderColor="red"
+      animationDuration={2}
+      pauseBetweenAnimations={1}
+      />
+      <br />
+     
         <h1>
-          Welcome to <span className="highlight">UGYAN</span> —<br />
-          Unlock Your Knowledge
+          Transforming <span className="highlight">Education</span> for Every Learner
         </h1>
         <p>
-          Explore top courses, hands-on projects, and mentorship from the best minds in education.
-          Empower your journey with cutting-edge tech.
+          Discover personalized online learning crafted by top educators. Empower your career with
+          skill-based, practical courses and internship-backed experiences.
         </p>
         <div className="hero-buttons">
           <button className="btn explore">Explore Courses</button>
