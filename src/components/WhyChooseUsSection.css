@@ -111,3 +111,21 @@
     font-size: 30px;
   }
 }
+/* Skeleton horizontal layout */
+.skeleton-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 10px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.skeleton-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.skeleton-slider .feature-card-wrapper {
+  min-width: 260px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}
