@@ -1,4 +1,5 @@
-import React, { useMemo } from "react";
+import { useState,useMemo } from "react";
+import axios from "axios";
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import "./ViewMore.css";
 
@@ -7,29 +8,27 @@ const ViewMore = ({ user }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const course = location.state?.course;
-  console.log(course);
+  const studentId = user?._id;
+  const [message, setMessage] = useState("");
+  const [enrollMsg,setEnrollMsg]=useState(null)
+  const handleEnroll = async () => {
+    setEnrollMsg("Enrolling...");
+    try {
+      const courseRes = await axios.get(`http://localhost:5000/api/courses/${title}`);
+      const courseId = courseRes.data._id;
 
-  const handleEnrollClick = () => {
-    if (!user) {
-      navigate("/loginorSignup", { 
-        replace: true, 
-        state: { from: location, course: course } 
+      const res = await axios.post("http://localhost:5000/api/enrollment/enroll", {
+        studentId,
+        courseId,
       });
-    } else {
-      navigate(`/enroll/${encodeURIComponent(course.title)}`, { 
-        state: { course } 
-      });
+      setMessage(res.data.message);
+      
+    } catch (err) {
+      setMessage(err.response?.data?.message || "Error enrolling");
     }
+    setEnrollMsg(null);
   };
 
-  if (!course) {
-    return (
-      <div className="not-found">
-        <h2>Course not found!</h2>
-        <button onClick={() => navigate("/courses")}>Back to Courses</button>
-      </div>
-    );
-  }
 
   const allReviews = [
     { stars: "⭐⭐⭐⭐⭐", text: "This course changed my life! The MERN stack was explained so clearly.", name: "— Aisha" },
@@ -71,11 +70,16 @@ const ViewMore = ({ user }) => {
         </div>
 
         {/* Enroll + Students Count */}
-        <div className="action-row">
-          <button className="enroll-btn" onClick={handleEnrollClick}>
-            {user ? "Enroll Now" : "Login to Enroll"}
+        <div className="flex flex-col w-full justify-center items-center ">
+          <button className="enroll-btn" onClick={handleEnroll}>
+            {user ? (enrollMsg||"Enroll Now") : "Login to Enroll"}
           </button>
-          <p className="student-count">📚 3,200 students enrolled</p>
+          {message&&(
+            <>
+              <p className="font-bold text-xl text-indigo-600 ">{message}.</p>
+              <p className="font-semibold text-md text-indigo-600 ">We will communicate you soon.</p>
+            </>
+          )}
         </div>
 
         {/* Lessons & Extras */}

@@ -1,50 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import "../css/ContactUs.css";
 
 const ContactUs = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading (you can replace this with real API call)
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div className="contact-us-container">
-      <h1 className="contact-us-heading">Contact Us</h1>
-      <p className="contact-us-subheading">We’d love to hear from you!</p>
+      <h1 className="contact-us-heading">
+        {loading ? <Skeleton width={220} /> : "Contact Us"}
+      </h1>
+      <p className="contact-us-subheading">
+        {loading ? <Skeleton width={320} /> : "We'd love to hear from you!"}
+      </p>
 
       <div className="contact-us-content">
-        {/* Contact Info */}
         <div className="contact-us-info">
-          <h2>Get in Touch</h2>
-          <p><strong>Address:</strong> Banglore, India</p>
-          <p><strong>Phone:</strong> +91 79751 65470</p>
-          <p><strong>Email:</strong> support@ugyan.in</p>
-          <p><strong>Hours:</strong> Mon - Fri, 9AM - 6PM</p>
-
+          <h2>{loading ? <Skeleton width={120} /> : "Reach Us"}</h2>
+          {loading ? (
+            <>
+              <Skeleton count={3} />
+            </>
+          ) : (
+            <>
+              <p>Email: info@ugyan.in</p>
+              <p>Phone: +91 9876543210</p>
+              <p>Address: Ugyan Pvt Ltd, Andhra Pradesh, India</p>
+            </>
+          )}
           <div className="contact-us-social-links">
-            <a href="#" className="contact-us-social linkedin">LinkedIn</a>
-            <a href="#" className="contact-us-social twitter">Twitter</a>
-            <a href="#" className="contact-us-social instagram">Instagram</a>
+            {loading ? (
+              <Skeleton height={35} width={250} />
+            ) : (
+              <>
+                <a href="#" className="contact-us-social linkedin">LinkedIn</a>
+                <a href="#" className="contact-us-social twitter">Twitter</a>
+                <a href="#" className="contact-us-social instagram">Instagram</a>
+              </>
+            )}
           </div>
         </div>
 
-        {/* Contact Form */}
         <div className="contact-us-form">
-          <h2 className="contact-us-form-heading">Send your queries here</h2>
-          <form>
-            <input type="text" placeholder="Your Name" disabled />
-            <input type="email" placeholder="Your Email" disabled />
-            <input type="text" placeholder="Subject" disabled />
-            <textarea placeholder="Your Message" rows="5" disabled></textarea>
-            <button type="submit" disabled title="Static page only">
-              Send Message
-            </button>
-          </form>
+          <h2 className="contact-us-form-heading">
+            {loading ? <Skeleton width={200} /> : "Send a Message"}
+          </h2>
+          {loading ? (
+            <Skeleton height={250} />
+          ) : (
+            <form>
+              <input type="text" placeholder="Your Name" disabled />
+              <input type="email" placeholder="Your Email" disabled />
+              <input type="text" placeholder="Subject" disabled />
+              <textarea rows="4" placeholder="Your Message" disabled />
+              <button type="submit" disabled>Send</button>
+            </form>
+          )}
         </div>
       </div>
+
       <div className="contact-us-map">
-        {/* <iframe
-          title="Google Map"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.219340903797!2d144.96332!3d-37.814217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f0a66b0d%3A0x5045675218ce6e0!2sIndia!5e0!3m2!1sen!2sin!4v1610000000000"
-          allowFullScreen=""
-          loading="lazy"
-        ></iframe> */}
-        <iframe title="Google Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62218.11065641293!2d77.66988807060254!3d12.931362919166437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x659d12bf5498f4e7%3A0x8ef08c377c391150!2sUGYAN%20PRIVATE%20LIMITED!5e0!3m2!1sen!2sin!4v1750866136697!5m2!1sen!2sin" allowfullscreen="" loading="lazy" ></iframe>
+        {loading ? (
+          <Skeleton height={300} />
+        ) : (
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.1318887809143!2d77.60518141474976!3d13.028569990825529!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae178a57fae2b3%3A0xa7a3c64c0a2c427f!2sUgyan%20Private%20Limited!5e0!3m2!1sen!2sin!4v1629630923722!5m2!1sen!2sin"
+            allowFullScreen=""
+            loading="lazy"
+            title="Ugyan Location"
+          ></iframe>
+        )}
       </div>
     </div>
   );

@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
 import './WhyChooseUsSection.css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const features = [
   { title: "Top IIT Mentors", description: "Learn from experienced mentors from premier IITs.", icon: "🎓" },
@@ -15,6 +17,13 @@ const features = [
 ];
 
 const WhyChooseUsSection = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   const settings = {
     dots: false,
     arrows: false,
@@ -33,17 +42,32 @@ const WhyChooseUsSection = () => {
   return (
     <section className="why-us-section">
       <h2 className="why-title">Why Choose Ugyan Tech?</h2>
-      <Slider {...settings} className="features-carousel">
-        {features.map((item, index) => (
-          <div key={index} className="feature-card-wrapper">
-            <div className="feature-card">
-              <div className="feature-icon">{item.icon}</div>
-              <h3 className="feature-title">{item.title}</h3>
-              <p className="feature-description">{item.description}</p>
+
+      {loading ? (
+        <div className="features-carousel skeleton-slider">
+          {[...Array(4)].map((_, i) => (
+            <div className="feature-card-wrapper" key={i}>
+              <div className="feature-card">
+                <Skeleton circle height={50} width={50} />
+                <Skeleton height={20} width={140} style={{ margin: '10px 0' }} />
+                <Skeleton count={2} width={180} />
+              </div>
             </div>
-          </div>
-        ))}
-      </Slider>
+          ))}
+        </div>
+      ) : (
+        <Slider {...settings} className="features-carousel">
+          {features.map((item, index) => (
+            <div key={index} className="feature-card-wrapper">
+              <div className="feature-card">
+                <div className="feature-icon">{item.icon}</div>
+                <h3 className="feature-title">{item.title}</h3>
+                <p className="feature-description">{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </Slider>
+      )}
     </section>
   );
 };

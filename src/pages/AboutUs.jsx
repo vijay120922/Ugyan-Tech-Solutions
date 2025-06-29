@@ -1,101 +1,162 @@
+import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import "../css/AboutUs.css";
 
 const AboutUs = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <section className="about-us-wrapper">
       {/* Intro Section */}
       <div className="intro-section">
-        <h1 className="main-heading">Online Education Tailored to You</h1>
+        <h1 className="main-heading">
+          {loading ? <Skeleton width={320} /> : "Online Education Tailored to You"}
+        </h1>
         <p className="description">
-          Unlock your true potential and discover a world of opportunities that align
-          with your skills, interests, and aspirations
+          {loading ? (
+            <Skeleton count={2} width={700} />
+          ) : (
+            "Unlock your true potential and discover a world of opportunities that align with your skills, interests, and aspirations"
+          )}
         </p>
       </div>
 
       {/* Vision & Mission */}
-      {/* Vision & Mission */}
-<div className="vision-mission">
-  <div className="card">
-    <div className="card-header">
-      <h2 className="card-title">Vision</h2>
-    </div>
-    <p className="card-description">
-      At UGYAN Learning, our vision is to create a world where learning is celebrated,
-      knowledge acquisition is limitless, nurturing talent is paramount, and excellence
-      is the standard in every pursuit. We envision a community where individuals thrive
-      through continuous growth and development, shaping a brighter future for generations to come.
-    </p>
-  </div>
-  <div className="card">
-    <div className="card-header">
-      <h2 className="card-title">Mission</h2>
-    </div>
-    <p className="card-description">
-      Our mission is to cultivate a dynamic learning ecosystem that empowers individuals to embark on
-      a journey of discovery, acquisition, and mastery. Through innovative programs, personalized support,
-      and collaborative partnerships, we strive to nurture talent, foster creativity, and inspire a
-      lifelong passion for learning.
-    </p>
-  </div>
-</div>
+      <div className="vision-mission">
+        {[...Array(2)].map((_, idx) => (
+          <div className="card" key={idx}>
+            <div className="card-header">
+              <h2 className="card-title">
+                {loading ? <Skeleton width={100} /> : idx === 0 ? "Vision" : "Mission"}
+              </h2>
+            </div>
+            <p className="card-description">
+              {loading ? (
+                <Skeleton count={4} />
+              ) : idx === 0 ? (
+                "At UGYAN Learning, our vision is to become a global leader in digital education by making quality learning accessible, inclusive, and personalized for everyone. We envision a future where technology bridges the gap between curiosity and opportunity, empowering individuals to grow, innovate, and lead in a rapidly evolving world."
+              ) : (
+                "Our mission is to provide learner-centric, technology-driven education that empowers individuals with the skills and knowledge needed to thrive in the 21st century. Through expert mentorship, interactive content, and real-world applications, we aim to cultivate a community of lifelong learners who are confident, capable, and future-ready."
+              )}
+            </p>
+          </div>
+        ))}
+      </div>
 
       {/* Ugyan Description Section */}
       <div className="ugyan-description reverse-layout">
-  <div className="info-box card-animate">
-    <h2>Welcome to Ugyan</h2>
-    <p>
-      UGyan is built on the foundation that knowledge is the key to boundless possibilities.
-      By equipping yourself with knowledge, you gain the tools and understanding to break through
-      barriers and reach your full potential.
-    </p>
-    <p>
-      UGyan's motto, "Unlock Your Knowledge," reflects this belief. It’s a powerful call to action,
-      urging individuals to take charge of their learning journey and use knowledge as the springboard
-      to achieving their dreams.
-    </p>
-    <div className="features">
-      <span>Industry Knowledge</span>
-      <span> Online Courses</span>
-    </div>
-    <button className="enroll-btn">ENROLL TODAY →</button>
-  </div>
+        <div className="info-box card-animate">
+          <h2>{loading ? <Skeleton width={200} /> : "Welcome to Ugyan"}</h2>
+          <p>
+            {loading ? (
+              <Skeleton count={3} />
+            ) : (
+              "UGyan is built on the foundation that knowledge is the key to boundless possibilities. We believe learning should not be confined to classrooms or rigid schedules. Instead, it should be a dynamic, empowering experience accessible to all."
+            )}
+          </p>
+          <p>
+            {loading ? (
+              <Skeleton count={2} />
+            ) : (
+              "UGyan's motto, 'Unlock Your Knowledge,' reflects this belief. Our platform brings together expert mentors, practical resources, and personalized pathways to help every learner succeed."
+            )}
+          </p>
+          <div className="features">
+            {loading ? (
+              <>
+                <Skeleton width={120} />
+                <Skeleton width={120} />
+              </>
+            ) : (
+              <>
+                <span>Industry Knowledge</span>
+                <span>Online Courses</span>
+              </>
+            )}
+          </div>
+          {loading ? (
+            <Skeleton width={160} height={44} style={{ marginTop: "20px", borderRadius: "30px" }} />
+          ) : (
+            <button className="enroll-btn">ENROLL TODAY →</button>
+          )}
+        </div>
 
-  <div className="image-group">
-    <img src="/course1.jpg" alt="Course 1" className="large-img" />
-    <img src="/course2.jpg" alt="Course 2" className="small-img" />
-  </div>
-</div>
-
+        <div className="image-group">
+          {loading ? (
+            <>
+              <Skeleton className="large-img" height={260} />
+              <Skeleton className="small-img" height={180} />
+            </>
+          ) : (
+            <>
+              <img src="/course1.jpg" alt="Course 1" className="large-img" />
+              <img src="/course2.jpg" alt="Course 2" className="small-img" />
+            </>
+          )}
+        </div>
+      </div>
 
       {/* Team Section */}
       <div className="choose-grid">
-        <div className="row">
-          <div className="image-box green-bg">
-            <img src="/man1.png" alt="Team Member 1" />
-          </div>
-          <div className="text-box shadow-box">
-            <p>
-              <strong>Dr. Emily Chen</strong>
-              <br />
-              Expert educator with 15+ years in e-learning. Passionate about helping students unlock their potential
-              through engaging content and modern pedagogy.
-            </p>
-          </div>
-        </div>
+        {[1, 2].map((_, index) => (
+          <div className="row" key={index}>
+            {index % 2 === 0 ? (
+              <>
+                {/* Image Left */}
+                <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
+                  {loading ? (
+                    <Skeleton width="100%" height="100%" />
+                  ) : (
+                    <img src="/dp.jpg" alt="Team Member" />
+                  )}
+                </div>
 
-        <div className="row">
-          <div className="text-box shadow-box">
-            <p>
-              <strong>Dr. Michael Lee</strong>
-              <br />
-              Tech visionary and mentor. Michael brings real-world projects and hands-on training to UGyan’s platform,
-              making learning practical and job-ready.
-            </p>
+                {/* Text Right */}
+                <div className="text-box shadow-box">
+                  {loading ? (
+                    <Skeleton count={3} />
+                  ) : (
+                 <p>
+  <strong>Dr. Michael Lee</strong>
+  <br />
+  A tech mentor and AI expert, Dr. Lee focuses on building intelligent learning platforms and guiding institutions through digital education transformation.
+</p>
+                  )}
+                </div>
+              </>
+            ) : (
+              <>
+                {/* Text Left */}
+                <div className="text-box shadow-box">
+                  {loading ? (
+                    <Skeleton count={3} />
+                  ) : (
+                    <p>
+  <strong>Dr. Michael Lee</strong>
+  <br />
+  A tech mentor and AI expert, Dr. Lee focuses on building intelligent learning platforms and guiding institutions through digital education transformation.
+</p>
+                  )}
+                </div>
+
+                {/* Image Right */}
+                <div className={`image-box ${index % 2 === 0 ? "green-bg" : "peach-bg"}`}>
+                  {loading ? (
+                    <Skeleton width="100%" height="100%" />
+                  ) : (
+                    <img src="/dp.jpg" alt="Team Member" />
+                  )}
+                </div>
+              </>
+            )}
           </div>
-          <div className="image-box peach-bg">
-            <img src="/man2.png" alt="Team Member 2" />
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );
