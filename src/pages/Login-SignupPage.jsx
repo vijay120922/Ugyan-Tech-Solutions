@@ -18,8 +18,15 @@ const LoginSignupPage = ({ setUser }) => {
   const [confirmPassVis,setConfirmPassVis]=useState(false);
   const [loginInfo,setLoginInfo]=useState({Email:"",Password:""});
   const [loginError,setLoginError]=useState({Email:'',Password:''});
-  const [signUpInfo,setSignUpInfo]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
-  const [signUpError,setSignUpError]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:""});
+  const [signUpInfo,setSignUpInfo]=useState({
+    firstName:"",
+    lastName:"",
+    Email:"",
+    Password:"",
+    confirmPass:"",
+    mobileNumber: "",
+  });
+  const [signUpError,setSignUpError]=useState({firstName:"",lastName:"", Email:"",Password:"",confirmPass:"",mobileNumber:""});
   async function handleSignupSubmit() {
     const isValid = validateSignup();
     if (!isValid) return;
@@ -33,13 +40,14 @@ const LoginSignupPage = ({ setUser }) => {
           lastName: signUpInfo.lastName,
           email: signUpInfo.Email,
           password: signUpInfo.Password,
+          mobileNumber: signUpInfo.mobileNumber,
         }),
       });
 
       const data = await res.json();
       if (res.ok) {
         alert("Signup Successful!");
-        setFlip(false); // Flip back to login form
+        setFlip(false);
       } else {
         alert(data.message || "Signup failed");
       }
@@ -131,6 +139,9 @@ const LoginSignupPage = ({ setUser }) => {
     if (signUpInfo.Password && signUpInfo.confirmPass !== signUpInfo.Password) {
       newErrors.confirmPass = "Passwords do not match";
     }
+    if (signUpInfo.mobileNumber.trim() === "") {
+      newErrors.mobileNumber = "Mobile Number not entered";
+    }
     setSignUpError(newErrors);
     return Object.keys(newErrors).length === 0;
   }
@@ -184,78 +195,100 @@ const LoginSignupPage = ({ setUser }) => {
               <button className="hover:bg-sky-800 border-2 text-black hover:text-white hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold" onClick={()=>setFlip(true)}>SIGN UP</button>
             </div>
          </div>
-        <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black px-4 py-6 sm:px-8 md:px-12 lg:px-16">
+        <div className="signupform flex flex-col gap-5 items-center justify-center rounded-xl login-bg shadow-2xl shadow-black px-2 py-4 sm:px-6 md:px-10 lg:px-16 w-full">
           <div className="text-3xl font-bold flex flex-col items-center gap-2">
             <FaUserTag size={60} color="white"/>
             <header>Sign Up</header>
           </div>
-          <div className="flex sm:gap-2 md:gap-3 lg:gap-4 w-full">
-            <div className="flex flex-col w-[50%]">
-              <div className="flex relative">
-                <input 
-                  type="text" 
-                  required 
-                  className="p-4 focus:outline-none focus:border-blue-500 border-2 cursor-pointer rounded-3xl font-semibold w-full" 
-                  onChange={(e)=>setSignUpInfo({...signUpInfo,firstName:e.target.value})}/>
-                <div className="labelline absolute top-4 left-4 text-gray-700">First Name</div>
-              </div>
-              <div className="error">{signUpError.firstName}</div>
-            </div>  
-            <div className="flex flex-col w-[50%]">
-              <div className="flex relative">
-                <input 
-                  type="text" 
-                  required 
-                  className="p-4 focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl w-full font-semibold"
-                  onChange={(e)=>setSignUpInfo({...signUpInfo,lastName:e.target.value})}/>
-                <div className="labelline absolute top-4 left-4 text-gray-700">Last Name</div>
-              </div>
-              <div className="error">{signUpError.lastName}</div>
-            </div>
-          </div>
-          <div className="flex flex-col w-full">
-            <div className="relative w-full">
-              <input 
-                type="text" 
-                required 
-                className="p-4 w-full focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
-                onChange={(e)=>setSignUpInfo({...signUpInfo,Email:e.target.value})}/>
-              <div className="labelline absolute top-4 left-4 text-gray-700">Email</div>
-            </div>
-            <div className="error">{signUpError.Email}</div>
-          </div>
-          <div className="flex flex-col w-full">
-            <div className="relative w-full">
-              <input 
-                type={`${passVis?'text':'password'}`} 
-                required 
-                className="p-4 w-full focus:outline-none focus:border-blue-500 bg-transparent cursor-pointer border-2 rounded-3xl font-semibold"
-                onChange={(e)=>setSignUpInfo({...signUpInfo,Password:e.target.value})}/>
-              <div className="labelline absolute top-4 left-4 text-gray-700">Set Password</div>
-              <div className="absolute right-4 top-6" onClick={()=>setPassVis(!passVis)}>
-                {passVis?<FaEyeSlash color="black" className="cursor-pointer"/>:<FaEye color="black" className="cursor-pointer"/>}
-              </div>
-            </div>
-            <div className="error">{signUpError.Password}</div>
-          </div>
-          <div className="flex flex-col w-full">
-            <div className="relative w-full">
-              <input 
-                type={`${confirmPassVis?'text':'password'}`} 
-                required 
-                className="p-4 w-full focus:outline-none focus:border-blue-500 cursor-pointer border-2 rounded-3xl font-semibold"
-                onChange={(e)=>setSignUpInfo({...signUpInfo,confirmPass:e.target.value})}/>
-              <div className="labelline absolute top-4 left-4 text-gray-700">Confirm Password</div>
-              <div className="absolute right-4 top-6" onClick={()=>setConfirmPassVis(!confirmPassVis)}>
-                    {confirmPassVis?<FaEyeSlash color="black" className="cursor-pointer"/>:<FaEye color="black" className="cursor-pointer"/>}
-                  </div>
-            </div>
-            <div className="error">{signUpError.confirmPass}</div>
-          </div>
-          <button className="gradientbutton-bg px-8 py-2 rounded-3xl text-black font-bold" onClick={handleSignupSubmit}>Create Account</button>
-          <div className="">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 w-full">
+  {/* First Name */}
+  <div className="flex flex-col w-full">
+    <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700  w-full">
+      <input 
+        type="text" 
+        placeholder="First Name"
+        className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+        onChange={(e)=>setSignUpInfo({...signUpInfo, firstName: e.target.value})}
+      />
+    </div>
+    <div className="error">{signUpError.firstName}</div>
+  </div>
+
+  {/* Last Name */}
+  <div className="flex flex-col w-full">
+    <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700 w-full">
+      <input 
+        type="text" 
+        placeholder="Last Name"
+        className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+        onChange={(e)=>setSignUpInfo({...signUpInfo, lastName: e.target.value})}
+      />
+    </div>
+    <div className="error">{signUpError.lastName}</div>
+  </div>
+</div>
+
+{/* Email */}
+<div className="flex flex-col w-full mt-2">
+  <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700  w-full">
+    <input 
+      type="email" 
+      placeholder="Email"
+      className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+      onChange={(e)=>setSignUpInfo({...signUpInfo, Email: e.target.value})}
+    />
+  </div>
+  <div className="error">{signUpError.Email}</div>
+</div>
+
+{/* Mobile Number */}
+<div className="flex flex-col w-full">
+  <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700  w-full">
+    <input 
+      type="tel"
+      placeholder="Mobile Number"
+      className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+      onChange={(e)=>setSignUpInfo({...signUpInfo, mobileNumber: e.target.value})}
+    />
+  </div>
+</div>
+
+{/* Password */}
+<div className="flex flex-col w-full mt-2">
+  <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700  w-full relative">
+    <input 
+      type={passVis ? "text" : "password"}
+      placeholder="Set Password"
+      className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+      onChange={(e)=>setSignUpInfo({...signUpInfo, Password: e.target.value})}
+    />
+    <div className="absolute right-3 top-3.5 cursor-pointer" onClick={() => setPassVis(!passVis)}>
+      {passVis ? <FaEyeSlash /> : <FaEye />}
+    </div>
+  </div>
+  <div className="error">{signUpError.Password}</div>
+</div>
+
+{/* Confirm Password */}
+<div className="flex flex-col w-full">
+  <div className="flex flex-row border font-semibold shadow-lg shadow-gray-700  w-full relative">
+    <input 
+      type={confirmPassVis ? "text" : "password"}
+      placeholder="Confirm Password"
+      className="p-2 w-full focus:outline-none bg-transparent text-sm sm:text-base rounded-2xl"
+      onChange={(e)=>setSignUpInfo({...signUpInfo, confirmPass: e.target.value})}
+    />
+    <div className="absolute right-3 top-3.5 cursor-pointer" onClick={() => setConfirmPassVis(!confirmPassVis)}>
+      {confirmPassVis ? <FaEyeSlash /> : <FaEye />}
+    </div>
+  </div>
+  <div className="error">{signUpError.confirmPass}</div>
+</div>
+
+          <button className="gradientbutton-bg px-8 py-2 rounded-3xl text-black font-bold w-full sm:w-auto" onClick={handleSignupSubmit}>Create Account</button>
+          <div className="flex flex-col sm:flex-row items-center justify-center w-full gap-2 mt-2">
             <span className="font-semibold text-sm">Already a member?</span>
-            <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-black hover:text-white ml-2" onClick={()=>setFlip(false)}>Log In</button>
+            <button className="hover:bg-sky-800 border-2 hover:shadow-lg hover:shadow-black transition-all duration-300 py-2 px-8 rounded-3xl font-bold text-black hover:text-white ml-0 sm:ml-2 w-full sm:w-auto" onClick={()=>setFlip(false)}>Log In</button>
           </div>
         </div>
       </div>

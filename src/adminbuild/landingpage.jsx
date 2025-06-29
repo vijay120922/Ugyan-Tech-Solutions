@@ -1,11 +1,26 @@
-import SideNavbar from "./sidenavbar";
-const AdminLandingPage=()=>{
+import { Route,Routes,Navigate } from "react-router-dom";
+
+import SideNavbar from "./components/sidenavbar";
+
+import HomePage from "./homepage";
+import DisplayCourse from "./DisplayCourse";
+import ViewCourse from "./ViewCourse";
+
+import UploadCourseForm from "./UploadCourse";
+import EditCourse from "./EditCourse";
+import StudentsData from "./StudentsData";
+const AdminLandingPage=({user,courses})=>{
     return(
-        <div className="min-w-screen min-h-screen bg-gray-400 relative">
+        <div className="min-w-screen min-h-screen flex" style={{fontFamily:"Poppins"}}>
             <SideNavbar/>
-            <div className="w-full flex justify-center items-center p-2 border">
-                <h1 className="text-white text-3xl">Welcome Boss!!</h1>
-            </div>
+            <Routes>
+                <Route path="/home" element={<HomePage user={user}/>}/>
+                <Route path="/courses" element={<DisplayCourse/>}/>
+                <Route path="/course/:title" element={<ViewCourse/>}/>
+                <Route path="/course_edit/:title" element={<EditCourse/>}/>
+                <Route path="/enrolledstudentsdata" element={<StudentsData/>}/>
+                <Route path="/uploadCourse" element={<UploadCourseForm/>}/>
+            </Routes>
         </div>
     )
 }

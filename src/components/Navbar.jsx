@@ -1,9 +1,9 @@
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
-import { ArrowRight, Menu, X } from "lucide-react";
+import { ArrowRight, Menu, X, LogOut } from "lucide-react";
 import "./Navbar.css";
 import { useEffect, useState } from "react";
 
-const Navbar = ({ user }) => {
+const Navbar = ({ user, setUser }) => {
   const location = useLocation();
   const [isAtTop, setIsAtTop] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -20,6 +20,12 @@ const Navbar = ({ user }) => {
     };
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setUser && setUser(null);
+    nav("/");
+  };
+
   return (
     <nav
       className={`${
@@ -31,9 +37,7 @@ const Navbar = ({ user }) => {
         <h4
           className="object-contain w-[130px] cursor-pointer whitespace-nowrap"
           style={{ fontFamily: "Poppins", fontWeight: "600" }}
-          onClick={() => nav("/")}>Ugyan Edu tech</h4>
-        
-
+          onClick={() => nav("/profile")}>Ugyan Edu tech</h4>
         <div className="lg:hidden">
           <button onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={26} /> : <Menu size={26} />}

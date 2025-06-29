@@ -23,6 +23,7 @@
   backface-visibility: hidden;
   top: 0;
   left: 0;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
 }
 
 .loginform {
@@ -34,6 +35,11 @@
   transform: rotateY(180deg);
   z-index: 1;
 }
+
+.signupform input {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
 .error{
     font-size: small;
     margin-top: 10px;
@@ -60,7 +66,7 @@
     transform: scale(1.01);
     box-shadow: 0px 0px 15px black;
 }
-.labelline{
+/* .labelline{
     transition: all 0.3s ease;
     padding: 0px 10px;
     pointer-events: none;
@@ -78,4 +84,4 @@ input:valid+.labelline{
     color: white;
     z-index: 2;
     border-radius: 20px;
-}
+} */
