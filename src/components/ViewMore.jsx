@@ -4,6 +4,7 @@ import { useLocation, useParams, useNavigate } from "react-router-dom";
 import "./ViewMore.css";
 
 const ViewMore = ({ user }) => {
+  const baseURL=import.meta.env.VITE_BACKEND_URL;
   const { title } = useParams();
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,10 +15,10 @@ const ViewMore = ({ user }) => {
   const handleEnroll = async () => {
     setEnrollMsg("Enrolling...");
     try {
-      const courseRes = await axios.get(`http://localhost:5000/api/courses/${title}`);
+      const courseRes = await axios.get(`${baseURL}/courses/${title}`);
       const courseId = courseRes.data._id;
 
-      const res = await axios.post("http://localhost:5000/api/enrollment/enroll", {
+      const res = await axios.post(`${baseURL}/enrollment/enroll`, {
         studentId,
         courseId,
       });

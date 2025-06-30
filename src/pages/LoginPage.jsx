@@ -4,6 +4,7 @@ import AuthLeft from "../components/authLeft";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({user,setUser}) => {
+    const baseURL=import.meta.env.VITE_BACKEND_URL;
     const navigate=useNavigate();
     const [passVisible,setPassVisible]=useState(false);
     const [loginInfo,setLoginInfo]=useState({Email:"",Password:""});
@@ -13,7 +14,7 @@ const LoginPage = ({user,setUser}) => {
         const isValid = validateLogin();
         if (!isValid) return;
         try {
-            const res = await fetch('http://localhost:5000/api/auth/login', {
+            const res = await fetch(`${baseURL}/auth/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

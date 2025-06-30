@@ -8,7 +8,7 @@ const ProfilePage = ({ setUser }) => {
   const [previewImage, setPreviewImage] = useState(null);
   const navigate = useNavigate();
 
-  // Fetch user details on mount
+  const baseURL=import.meta.env.VITE_BACKEND_URL;
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem('token');
@@ -16,7 +16,7 @@ const ProfilePage = ({ setUser }) => {
         navigate('/login');
         return;
       }
-      const res = await fetch('http://localhost:5000/api/users/me', {
+      const res = await fetch(`${baseURL}/users/me`, {
         headers: { 'Authorization': `Bearer ${token}` }
       });
       if (res.ok) {
@@ -38,7 +38,7 @@ const ProfilePage = ({ setUser }) => {
           updatedDetails.profilePic = previewImage;
         }
         const token = localStorage.getItem('token');
-        const response = await fetch('http://localhost:5000/api/users/edit', {
+        const response = await fetch(`${baseURL}/users/edit`, {
           method: 'PATCH',
           headers: {
             'Content-Type': 'application/json',
@@ -131,7 +131,7 @@ const ProfilePage = ({ setUser }) => {
     if (window.confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
       try {
         const token = localStorage.getItem('token');
-        const res = await fetch('http://localhost:5000/api/users/delete', {
+        const res = await fetch(`${baseURL}/users/delete`, {
           method: 'DELETE',
           headers: { 'Authorization': `Bearer ${token}` },
         });

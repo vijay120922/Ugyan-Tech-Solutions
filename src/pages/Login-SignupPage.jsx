@@ -10,6 +10,7 @@ import { FaUserTag } from "react-icons/fa6";
 import { useNavigate, useLocation } from "react-router-dom";
 import '../css/Login-SignupPage.css'
 const LoginSignupPage = ({ setUser }) => {
+  const baseURL=import.meta.env.VITE_BACKEND_URL;
   const navigate=useNavigate();
   const location = useLocation();
   const [passVisible,setPassVisible]=useState(false);
@@ -32,7 +33,7 @@ const LoginSignupPage = ({ setUser }) => {
     if (!isValid) return;
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/signup', {
+      const res = await fetch( `${baseURL}/auth/signup`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -61,7 +62,7 @@ const LoginSignupPage = ({ setUser }) => {
     if (!isValid) return;
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch(`${baseURL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

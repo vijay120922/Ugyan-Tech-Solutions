@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UploadCourseForm = () => {
+  const baseURL=import.meta.env.VITE_BACKEND_URL;
+  const navigate=useNavigate();
   const [formData, setFormData] = useState({
     title: "",
     subtitle: "",
@@ -90,7 +93,7 @@ const UploadCourseForm = () => {
     data.append("image", imageFile);
 
     try {
-      const res = await axios.post("http://localhost:5000/api/courses/create", data, {
+      const res = await axios.post(`${baseURL}/courses/create`, data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -117,6 +120,7 @@ const UploadCourseForm = () => {
       setMessage("Upload failed.");
     }
     setLoading(false);
+    navigate('/admin/courses');
   };
 
   return (
@@ -250,11 +254,14 @@ const UploadCourseForm = () => {
               className="flex flex-col items-center justify-center gap-4 cursor-pointer"
             >
               {imagePreview ? (
+                <>
                 <img
                   src={imagePreview}
                   alt="Preview"
                   className="max-h-48 rounded-xl object-contain"
                 />
+                <span>Browse Files</span>
+                </>
               ) : (
                 <>
                   <span className="text-gray-500 text-sm text-center">

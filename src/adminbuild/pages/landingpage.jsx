@@ -1,6 +1,6 @@
 import { Route,Routes,Navigate } from "react-router-dom";
 
-import SideNavbar from "./components/sidenavbar";
+import SideNavbar from "../components/sidenavbar";
 
 import HomePage from "./homepage";
 import DisplayCourse from "./DisplayCourse";
@@ -15,10 +15,13 @@ const AdminLandingPage=({user,courses})=>{
             <SideNavbar/>
             <Routes>
                 <Route path="/home" element={<HomePage user={user}/>}/>
+                
                 <Route path="/courses" element={<DisplayCourse/>}/>
                 <Route path="/course/:title" element={<ViewCourse/>}/>
                 <Route path="/course_edit/:title" element={<EditCourse/>}/>
+
                 <Route path="/enrolledstudentsdata" element={<StudentsData/>}/>
+
                 <Route path="/uploadCourse" element={<UploadCourseForm/>}/>
             </Routes>
         </div>

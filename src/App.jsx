@@ -16,8 +16,7 @@ import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignUpPage";
 
 // Admin Pages
-import AdminLandingPage from "./adminbuild/landingpage";
-import UploadCourseForm from "./adminbuild/UploadCourse";
+import AdminLandingPage from "./adminbuild/pages/landingpage";
 
 // Layout
 import ScrollToTop from "./components/ScrollToTop";
@@ -33,33 +32,18 @@ const ProtectedRoute = ({ user, allowedRoles, children }) => {
 
 function App() {
   const [user, setUser] = useState(null);
-  const [isRestoring, setIsRestoring] = useState(true);
+  const [loadingUser,setLoadingUser]=useState(true);
   const [courses, setCourses] = useState([]);
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
+    console.log(storedUser);
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
-
-    const fetchCourses = async () => {
-      try {
-        const res = await fetch("http://localhost:5000/api/courses");
-        const data = await res.json();
-        setCourses(data);
-      } catch (err) {
-        console.error("Failed to fetch courses:", err);
-      } finally {
-        setIsRestoring(false); // set after both tasks
-      }
-    };
-
-    fetchCourses();
-  }, []);
-
-
+    setLoadingUser(false);
+  },[]);
+  if(loadingUser) return <div className="p-10 text-center">Loading....</div>
   const isAdmin = user?.role === "Admin";
-
-  if (isRestoring) return null; 
 
   return (
     <>
@@ -98,7 +82,7 @@ function App() {
           element={<LoginPage user={user} setUser={setUser} />}
         />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/loginorSignup" element={<LoginSignupPage />} />
+        {/* <Route path="/loginorSignup" element={<LoginSignupPage />} /> */}
 
         {/* 🔁 Wildcard fallback */}
         <Route
