@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
-import CourseCard from "../components/courseCard";
+import CourseCard from "../components/CourseCard";
+
 import axios from "axios";
 import Skeleton from "react-loading-skeleton";
 import 'react-loading-skeleton/dist/skeleton.css';
