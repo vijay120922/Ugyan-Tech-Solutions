@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { FaEye,FaEyeSlash } from "react-icons/fa6";
-import AuthLeft from "../components/authLeft";
+import AuthLeft from "../components/AuthLeft";
 import { useNavigate } from "react-router-dom";
 
 const LoginPage = ({user,setUser}) => {

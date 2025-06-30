@@ -1,4 +1,4 @@
-import AuthLeft from "../components/authLeft";
+import AuthLeft from "../components/AuthLeft";
 
 const SignupPage=()=>{
     return(
