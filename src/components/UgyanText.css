@@ -1,12 +1,13 @@
 .focus-container {
-    position: relative;
-    display: flex;
-    gap: 1em;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 5px;
-  }
+  position: relative;
+  display: flex;
+  gap: 1em;
+  justify-content: flex-start;  /* ✅ Align text to left */
+  align-items: flex-start;      /* ✅ Align text to top */
+  flex-wrap: wrap;
+  padding: 5px;
+  text-align: left;             /* ✅ Ensures text direction */
+}
   
   .focus-word {
     position: relative;
