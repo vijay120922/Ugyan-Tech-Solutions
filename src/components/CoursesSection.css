@@ -2,7 +2,7 @@
   padding: 60px 40px;
   background: linear-gradient(to right, #f9f6fc, #ece1f7);
   text-align: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .section-title {
