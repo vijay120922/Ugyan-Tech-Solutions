@@ -62,11 +62,11 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2025 Ugyan Tech Solutions. All rights reserved.</p>
-        <div className="footer-legal-links">
-          <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
-        </div>
-      </div>
+  <p>&copy; {new Date().getFullYear()} Ugyan Tech Solutions. All rights reserved.</p>
+  <div className="footer-legal-links">
+    <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a>
+  </div>
+</div>
     </footer>
   );
 };
