@@ -1,370 +1,220 @@
-.about-us-wrapper {
+.about-us-container {
   font-family: 'Poppins', sans-serif;
-  padding: 60px 20px;
-  background-color: #f9f6fc;
-  color: #1e1e1e;
-}
-.intro-section {
-  text-align: center;
-  margin-bottom: 60px;
+  background: #f3e8ff;
 }
 
-.mini-heading {
-  color: #1e40af;
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 10px;
- 
+/* Layout */
+.split-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
 }
 
-.main-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #6a1b9a;
-  margin-bottom: 10px;
-  padding-top: 20px;
-}
-
-.description {
-  font-size: 1rem;
-  color: #444;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-/* === Vision & Mission === */
-.vision-mission {
+/* Hero Section */
+.top-half {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 30px;
-  margin-bottom: 60px;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+  background: linear-gradient(135deg, #8A2BE2, #4B0082);
+  color: white;
+  padding: 20px;
+  height: 55vh;
+}
+
+.hero-left, .hero-right {
+  flex: 1 1 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.hero-left h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.hero-left p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-left button {
+  background: white;
+  color: #4B0082;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hero-right img {
+  width: 350px;
+  height: auto;
+}
+
+/* Cards Section */
+.bottom-half {
+  background: #f3e8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding: 40px 20px;
 }
 
 .card {
-  flex: 1 1 400px;
-  background-color: white;
-  padding: 30px 35px;
-  border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 15px;
-}
-
-.card-icon {
-  font-size: 2rem;
-}
-
-.card-title {
-  font-size: 1.75rem;
-  color: #6a1b9a;
-  font-weight: 700;
-}
-
-.card-description {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.6;
-}
-
-.ugyan-description {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 40px;
-  margin-bottom: 70px;
-}
-
-.reverse-layout {
-  flex-direction: row-reverse;
-}
-
-.image-group {
-  flex: 1 1 300px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-
-.large-img {
   width: 260px;
-  border-radius: 16px;
-  object-fit: cover;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-}
-
-.small-img {
-  width: 180px;
-  border-radius: 12px;
-  object-fit: cover;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-}
-
-.info-box {
-  flex: 1 1 450px;
-  padding: 30px;
-  border-radius: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.07);
-  animation: fadeInUp 0.8s ease forwards;
-  transform: translateY(10px);
-  opacity: 0;
-}
-
-.card-animate {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card-animate:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-}
-
-.info-box h2 {
-  color: #6a1b9a;
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.info-box p {
-  font-size: 15px;
-  color: #333;
-  line-height: 1.6;
-  margin-bottom: 10px;
-}
-
-.features {
-  display: flex;
-  gap: 25px;
-  font-weight: 600;
-  margin-top: 15px;
-  color: #1e40af;
-}
-
-.enroll-btn {
-  margin-top: 20px;
-  background-color: #d9a437;
-  border: none;
-  color: white;
-  padding: 12px 28px;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.enroll-btn:hover {
-  background-color: #b88b2b;
-  transform: scale(1.05);
-}
-
-/* Simple fade in animation */
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-
-/* === Team Grid Section === */
-.choose-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
-}
-
-.image-box {
-  width: 300px;
   height: 300px;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  perspective: 1000px;
 }
 
-.image-box:hover {
-  transform: scale(1.05);
-}
-
-.image-box img {
+.card-inner {
+  position: relative;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  border-radius: 20px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
 }
 
-.green-bg {
-  background: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+.card:hover .card-inner {
+  transform: rotateY(180deg);
 }
 
-.peach-bg {
-  background: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.text-box {
-  background-color: #fff;
-  width: 600px;
-  padding: 30px;
-  border-radius: 16px;
-  text-align: left;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-  transition: transform 0.3s ease;
+.card-front {
+  background: white;
 }
 
-.text-box:hover {
-  transform: scale(1.02);
+.card-back {
+  background: #4B0082;
+  color: white;
+  transform: rotateY(180deg);
 }
 
-.text-box p {
-  font-size: 16px;
-  color: #1e1e1e;
-  line-height: 1.6;
+/* Journey Section */
+.journey-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: #f3e8ff;
 }
 
-@media (max-width: 992px) {
-  .main-heading {
+.journey-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #4B0082;
+}
+
+.journey-text {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: #555;
+}
+
+/* Carousel Styling */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: transparent;
+}
+
+.carousel-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel-slide img {
+  width: 90%;
+  max-width: 1000px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .top-half {
+    flex-direction: column;
+  }
+
+  .bottom-half {
+    flex-direction: column;
+  }
+
+  .hero-left h2 {
     font-size: 2rem;
   }
 
-  .card {
-    flex: 1 1 100%;
-    padding: 25px;
-  }
-
-  .ugyan-description {
-    flex-direction: column;
-  }
-
-  .reverse-layout {
-    flex-direction: column-reverse;
-  }
-
-  .info-box,
-  .image-group {
-    flex: 1 1 100%;
-    max-width: 100%;
-  }
-
-  .large-img,
-  .small-img {
-    width: 80%;
-  }
-
-  .text-box {
-    width: 90%;
-  }
-
-  .image-box {
-    width: 250px;
-    height: 250px;
-  }
-
-  .features {
-    flex-wrap: wrap;
-    gap: 15px;
-  }
-
-  .vision-mission {
-    gap: 20px;
-  }
-
-  .choose-grid {
-    gap: 40px;
+  .hero-left p {
+    font-size: 1rem;
   }
 }
+/* Journey Section */
+.journey-section {
+  padding: 60px 20px;
+  background-color: #f3e8ff; /* consistent with rest */
+  text-align: center;
+}
 
-@media (max-width: 576px) {
-  .main-heading {
-    font-size: 1.75rem;
-  }
+.journey-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #4B0082;
+}
 
-  .description,
-  .card-description,
-  .info-box p,
-  .text-box p {
-    font-size: 14px;
-  }
+.journey-text {
+  max-width: 600px;
+  margin: 0 auto 30px;
+  color: #555;
+}
 
-  .card-title {
-    font-size: 1.5rem;
-  }
+/* Carousel Fix */
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1000px;
+  overflow: hidden;
+}
 
-  .info-box h2 {
-    font-size: 24px;
-  }
+.carousel-slide {
+  width: 100%;
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  padding: 10px;
+}
 
-  .enroll-btn {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-
-  .large-img {
-    width: 90%;
-  }
-
-  .small-img {
-    width: 60%;
-  }
-
-  .image-box {
-    width: 200px;
-    height: 200px;
-  }
-
-  .text-box {
-    width: 100%;
-    padding: 20px;
-  }
-
-  .features {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .row {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .intro-section {
-    margin-bottom: 40px;
-  }
-
-  .vision-mission {
-    margin-bottom: 40px;
-  }
-
-  .ugyan-description {
-    margin-bottom: 50px;
-  }
+.carousel-slide img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }

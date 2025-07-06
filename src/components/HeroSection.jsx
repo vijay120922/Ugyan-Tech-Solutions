@@ -21,7 +21,12 @@ const HeroSection = () => {
       <div className="hero-container">
         <div className="hero-content">
           {loading ? (
-            <Skeleton width={220} height={36} style={{ margin: "0 auto" }} />
+            <Skeleton
+              width={220}
+              height={36}
+              style={{ margin: "0 auto" }}
+              borderRadius={8}
+            />
           ) : (
             <UgyanText
               sentence="Ugyan EduTech"
@@ -35,7 +40,12 @@ const HeroSection = () => {
 
           <h1>
             {loading ? (
-              <Skeleton width={480} height={45} style={{ margin: "16px auto" }} />
+              <Skeleton
+                width={300}
+                height={40}
+                style={{ margin: "16px 0" }}
+                borderRadius={10}
+              />
             ) : (
               <>
                 Career-Ready <span className="highlight">Learning,</span>
@@ -47,7 +57,20 @@ const HeroSection = () => {
 
           <p>
             {loading ? (
-              <Skeleton count={2} width={700} style={{ margin: "0 auto" }} />
+              <>
+                <Skeleton
+                  width={`90%`}
+                  height={18}
+                  style={{ margin: "8px 0" }}
+                  borderRadius={4}
+                />
+                <Skeleton
+                  width={`80%`}
+                  height={18}
+                  style={{ margin: "8px 0" }}
+                  borderRadius={4}
+                />
+              </>
             ) : (
               <>
                 Empower your career with practical, personalized learning and
