@@ -6,7 +6,6 @@ import Carousel from "../components/Carousel.jsx";
 const AboutUs = () => {
   return (
     <div className="about-us-container">
-      {/* Hero Section */}
       <section className="split-screen">
         <div className="top-half">
           <div className="hero-left">
@@ -22,7 +21,6 @@ const AboutUs = () => {
           </div>
         </div>
 
-        {/* Cards Section */}
         <div className="bottom-half">
           <div className="card">
             <div className="card-inner">
@@ -54,13 +52,12 @@ const AboutUs = () => {
         </div>
       </section>
 
-      {/* Journey Carousel Section */}
       <section className="journey-section">
         <h2>Our Journey in Pictures</h2>
         <p className="journey-text">
           Explore moments that define our culture, showcase our team, and highlight our commitment to transforming education.
         </p>
-        <div className="carousel">
+        <div classname="carousel"> {/* NOTE: typo here: 'classname' should be 'className' */}
           <Carousel />
         </div>
       </section>

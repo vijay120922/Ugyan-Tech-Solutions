@@ -3,14 +3,13 @@
   background: #f3e8ff;
 }
 
-/* Layout */
 .split-screen {
   display: flex;
   flex-direction: column;
   gap: 40px;
 }
 
-/* Hero Section */
+/* Top Half - Hero */
 .top-half {
   display: flex;
   flex-wrap: wrap;
@@ -57,7 +56,7 @@
   height: auto;
 }
 
-/* Cards Section */
+/* Bottom Half - Cards Section */
 .bottom-half {
   background: #f3e8ff;
   display: flex;
@@ -115,6 +114,7 @@
   padding: 80px 20px;
   text-align: center;
   background: #f3e8ff;
+  margin-top: 0;
 }
 
 .journey-section h2 {
@@ -129,32 +129,19 @@
   color: #555;
 }
 
-/* Carousel Styling */
 .carousel {
   display: flex;
   justify-content: center;
-  align-items: center;
-  width: 100%;
-  background-color: transparent;
+  background-color: #f3e8ff;
 }
 
-.carousel-slide {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  padding: 20px;
-  border-radius: 10px;
-}
-
-.carousel-slide img {
+.carousel img {
   width: 90%;
   max-width: 1000px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
   .top-half {
     flex-direction: column;
@@ -171,50 +158,4 @@
   .hero-left p {
     font-size: 1rem;
   }
-}
-/* Journey Section */
-.journey-section {
-  padding: 60px 20px;
-  background-color: #f3e8ff; /* consistent with rest */
-  text-align: center;
-}
-
-.journey-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: #4B0082;
-}
-
-.journey-text {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  color: #555;
-}
-
-/* Carousel Fix */
-.carousel {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: transparent;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 1000px;
-  overflow: hidden;
-}
-
-.carousel-slide {
-  width: 100%;
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  background: transparent;
-  padding: 10px;
-}
-
-.carousel-slide img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
