@@ -1,11 +1,13 @@
 import React from "react";
 import "../css/AboutUs.css";
 import { FaLightbulb, FaCompass } from "react-icons/fa";
-import Carousel from "../components/Carousel.jsx";
+import Carousel from "../components/Carousel";
 
 const AboutUs = () => {
   return (
     <div className="about-us-container">
+      
+      {/* Split Screen Section */}
       <section className="split-screen">
         <div className="top-half">
           <div className="hero-left">
@@ -21,11 +23,14 @@ const AboutUs = () => {
           </div>
         </div>
 
+        {/* Vision & Mission Cards */}
         <div className="bottom-half">
           <div className="card">
             <div className="card-inner">
               <div className="card-front">
-                <FaLightbulb size={40} />
+                <div className="card-icon">
+                  <FaLightbulb size={40} color="rgb(138, 43, 226)" />
+                </div>
                 <h3>Our Vision</h3>
                 <p>Hover to learn more</p>
               </div>
@@ -39,7 +44,9 @@ const AboutUs = () => {
           <div className="card">
             <div className="card-inner">
               <div className="card-front">
-                <FaCompass size={40} />
+                <div className="card-icon">
+                  <FaCompass size={40} color="rgb(138, 43, 226)" />
+                </div>
                 <h3>Our Mission</h3>
                 <p>Hover to learn more</p>
               </div>
@@ -52,14 +59,14 @@ const AboutUs = () => {
         </div>
       </section>
 
+      {/* Our Journey in Pictures */}
       <section className="journey-section">
         <h2>Our Journey in Pictures</h2>
         <p className="journey-text">
           Explore moments that define our culture, showcase our team, and highlight our commitment to transforming education.
         </p>
-        <div classname="carousel"> {/* NOTE: typo here: 'classname' should be 'className' */}
-          <Carousel />
-        </div>
+        
+        <Carousel />
       </section>
     </div>
   );
