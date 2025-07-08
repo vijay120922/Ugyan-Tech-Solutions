@@ -2,14 +2,16 @@ import React from "react";
 import "../css/AboutUs.css";
 import { FaLightbulb, FaCompass } from "react-icons/fa";
 import Carousel from "../components/Carousel";
+import CircularGallery from "../components/CircularGallery.jsx";
 
 const AboutUs = () => {
   return (
     <div className="about-us-container">
-      
       {/* Split Screen Section */}
       <section className="split-screen">
-        {/* <div className="top-half">
+        {/* Optional Hero Section */}
+        {/* 
+        <div className="top-half">
           <div className="hero-left">
             <h2>Empowering Education with Purpose</h2>
             <p>Driven by purpose. Focused on learners. Inspired by change.</p>
@@ -21,7 +23,8 @@ const AboutUs = () => {
               alt="Education Concept"
             />
           </div>
-        </div> */}
+        </div>
+        */}
 
         {/* Vision & Mission Cards */}
         <div className="bottom-half">
@@ -36,7 +39,11 @@ const AboutUs = () => {
               </div>
               <div className="card-back">
                 <h3>Our Vision</h3>
-                <p>To create a world where quality education is accessible to everyone.</p>
+                <p>
+                  To create a world where quality education is accessible to
+                  everyone, empowering individuals to unlock their full
+                  potential, regardless of background or geography.
+                </p>
               </div>
             </div>
           </div>
@@ -52,7 +59,11 @@ const AboutUs = () => {
               </div>
               <div className="card-back">
                 <h3>Our Mission</h3>
-                <p>To develop innovative educational technology for all learners.</p>
+                <p>
+                  To develop inclusive, innovative, and technology-driven
+                  educational solutions that cater to diverse learning needs
+                  and drive global transformation in education.
+                </p>
               </div>
             </div>
           </div>
@@ -63,10 +74,18 @@ const AboutUs = () => {
       <section className="journey-section">
         <h2>Our Journey in Pictures</h2>
         <p className="journey-text">
-          Explore moments that define our culture, showcase our team, and highlight our commitment to transforming education.
+          Explore moments that define our culture, showcase our team, and
+          highlight our commitment to transforming education.
         </p>
-        
-        <Carousel />
+
+        <div style={{ height: "600px", position: "relative" }}>
+          <CircularGallery
+            bend={3}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            scrollEase={0.02}
+          />
+        </div>
       </section>
     </div>
   );
