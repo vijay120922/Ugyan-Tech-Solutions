@@ -9,7 +9,7 @@ const AboutUs = () => {
       
       {/* Split Screen Section */}
       <section className="split-screen">
-        <div className="top-half">
+        {/* <div className="top-half">
           <div className="hero-left">
             <h2>Empowering Education with Purpose</h2>
             <p>Driven by purpose. Focused on learners. Inspired by change.</p>
@@ -21,7 +21,7 @@ const AboutUs = () => {
               alt="Education Concept"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Vision & Mission Cards */}
         <div className="bottom-half">
