@@ -32,7 +32,7 @@ const ContactUsSection = () => {
               <h2 className="contact-us-form-heading">Let us call you back</h2>
               <form>
                 <input type="text" placeholder="Your Name"  />
-                <input type="number" placeholder="Your contact number"/>
+                <input type="text" placeholder="Your contact number"/>
                 <input type="text" placeholder="Your Mail"  />
                 <input type="text" placeholder="Intrested Course"  />
                 <button type="submit" disabled className="send-button" title="Static page only">
