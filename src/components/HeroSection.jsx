@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
 import UgyanText from "./UgyanText";
@@ -9,6 +10,7 @@ import "./HeroSection.css";
 
 const HeroSection = () => {
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // ✅ hook for navigation
 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
@@ -87,8 +89,12 @@ const HeroSection = () => {
               </>
             ) : (
               <>
-                <button className="btn explore">Explore Courses</button>
-                <button className="btn enroll">Enroll Now</button>
+                <button className="btn explore" onClick={() => navigate("/courses")}>
+                  Explore Courses
+                </button>
+                <button className="btn enroll" onClick={() => navigate("/about-us")}>
+                  About Us
+                </button>
               </>
             )}
           </div>
