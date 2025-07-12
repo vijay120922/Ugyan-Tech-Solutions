@@ -25,7 +25,7 @@
     linear-gradient(to right, #f5e1ff, #ece1f7);
   color: white;
   padding: 20px 40px;
-  height: 65vh;
+  min-height: 65vh;
 }
 
 .hero-left, .hero-right {
@@ -72,7 +72,8 @@
 }
 
 .hero-right img {
-  width: 350px;
+  width: 100%;
+  max-width: 350px;
   height: auto;
 }
 
@@ -88,7 +89,8 @@
 }
 
 .card {
-  width: 432px;
+  width: 100%;
+  max-width: 432px;
   height: 320px;
   perspective: 1000px;
 }
@@ -181,21 +183,64 @@
   color: #555;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .top-half {
-    flex-direction: column;
-  }
-
-  .bottom-half {
-    flex-direction: column;
-  }
-
+/* Tablet View */
+@media (max-width: 992px) {
   .hero-left h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .hero-left p {
-    font-size: 1rem;
+    font-size: 1.05rem;
+  }
+
+  .bottom-half {
+    gap: 30px;
+  }
+
+  .card {
+    height: 300px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 576px) {
+  .top-half {
+    flex-direction: column;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .hero-left, .hero-right {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-left h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-left p {
+    font-size: 0.95rem;
+  }
+
+  .hero-left button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .card {
+    height: auto;
+  }
+
+  .card-back h3 {
+    font-size: 22px;
+  }
+
+  .card-back p {
+    font-size: 15px;
+  }
+
+  .journey-section h2 {
+    font-size: 2rem;
   }
 }
