@@ -10,7 +10,6 @@ const CourseCard = ({ course, loading }) => {
   async function handleDelete() {
     const confirmDelete = window.confirm("Are you sure you want to delete this course?");
     if (!confirmDelete) return;
-
     try {
       await axios.delete(`${baseURL}/courses/delete/${course._id}`);
       alert("Course deleted successfully!");
